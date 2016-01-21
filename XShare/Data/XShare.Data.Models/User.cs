@@ -39,8 +39,8 @@
 
         public virtual ICollection<Reservation> Reservations
         {
-            get { return this.accidents; }
-            set { this.accidents = value; }
+            get { return this.reservations; }
+            set { this.reservations = value; }
         }
     }
 }
