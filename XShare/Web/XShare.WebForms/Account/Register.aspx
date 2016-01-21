@@ -10,12 +10,28 @@
         <h4>Create a new account</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
+            <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">User name</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="UserName" CssClass="form-control" TextMode="SingleLine" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
+                    CssClass="text-danger" ErrorMessage="The user name field is required." />
+            </div>
+        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The email field is required." />
+            </div>
+        </div>
+                <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="PhoneNumber" CssClass="col-md-2 control-label">Phone number</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="PhoneNumber" CssClass="form-control" TextMode="Phone" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                    CssClass="text-danger" ErrorMessage="The phone number field is required." />
             </div>
         </div>
         <div class="form-group">
