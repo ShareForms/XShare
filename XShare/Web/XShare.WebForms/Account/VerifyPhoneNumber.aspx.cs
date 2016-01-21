@@ -15,7 +15,8 @@ namespace XShare.WebForms.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var phonenumber = Request.QueryString["PhoneNumber"];
-            var code = manager.GenerateChangePhoneNumberToken(User.Identity.GetUserId(), phonenumber);           
+            var code = manager.GenerateChangePhoneNumberToken(User.Identity.GetUserId(), phonenumber);
+            this.Code.Text = code;       
             PhoneNumber.Value = phonenumber;
         }
 

@@ -39,7 +39,7 @@ namespace XShare.WebForms.Account
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
             // Enable this after setting up two-factor authentientication
-            //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
+            PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
 
             TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId());
 
