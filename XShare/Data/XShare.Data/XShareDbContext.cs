@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -14,6 +15,14 @@
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public virtual IDbSet<Car> Cars { get; set; }
+
+        public virtual IDbSet<Rating> Ratings { get; set; }
+
+        public virtual IDbSet<Reservation> Reservations { get; set; }
+
+        public virtual IDbSet<Accident> Accidents { get; set; }
 
         public static XShareDbContext Create()
         {
