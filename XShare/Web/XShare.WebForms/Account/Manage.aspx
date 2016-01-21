@@ -43,6 +43,12 @@
                         <asp:HyperLink NavigateUrl="/Account/AddPhoneNumber" runat="server" Text="[Change]" /> 
                     </dd>
                     <% } %>
+                    <dt>Email:</dt>
+                    <dd>
+                        <asp:Label Text="" ID="CurrentMail" runat="server" />
+                        <asp:HyperLink NavigateUrl="/Account/ManageMail" Text="[Change]" Visible="false" ID="ChangeMail" runat="server" />
+                        <asp:HyperLink NavigateUrl="/Account/ManageMail" Text="[Create]" Visible="false" ID="CreateMail" runat="server" />
+                    </dd>
                 </dl>
             </div>
         </div>
