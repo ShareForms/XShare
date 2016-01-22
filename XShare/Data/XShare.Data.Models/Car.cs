@@ -30,7 +30,7 @@
         public double FuelEconomy { get; set; }
 
         [Required]
-        public string pictureUrl { get; set; }
+        public string PictureUrl { get; set; }
 
         public ICollection<string> Features { get; set; }
 
