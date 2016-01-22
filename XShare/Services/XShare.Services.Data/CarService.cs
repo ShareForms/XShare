@@ -1,6 +1,7 @@
 ﻿namespace XShare.Services.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
@@ -18,6 +19,23 @@
         public IQueryable<Car> AllCars()
         {
             return this.cars.All();
+        }
+
+        public Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType)
+        {
+            var carToAdd = new Car
+            {
+                Description = carDescription,
+                FuelEconomy = carFuelEconomy,
+                PictureUrl = carPictureUrl,
+                Features = carFeatures,
+                CarType = carCarType
+            };
+
+            this.cars.Add(carToAdd);
+            this.cars.SaveChanges();
+
+            return carToAdd;
         }
     }
 }
