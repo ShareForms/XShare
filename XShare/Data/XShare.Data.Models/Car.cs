@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XShare.Common.Constants;
-
-namespace XShare.Data.Models
+﻿namespace XShare.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using XShare.Common.Constants;
+
     public class Car
     {
         private ICollection<Rating> ratings;
@@ -32,6 +28,9 @@ namespace XShare.Data.Models
 
         [Range(ModelConstants.MinFuel, ModelConstants.MaxFuel)]
         public double FuelEconomy { get; set; }
+
+        [Required]
+        public string pictureUrl { get; set; }
 
         public ICollection<string> Features { get; set; }
 
