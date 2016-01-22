@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XShare.WebForms.Cars {
+namespace XShare.WebForms.Reservations {
     
     
-    public partial class All {
+    public partial class Latest {
         
         /// <summary>
-        /// ViewAllCars control.
+        /// ViewLastestReservations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ViewAllCars;
+        protected global::System.Web.UI.WebControls.ListView ViewLastestReservations;
         
         /// <summary>
-        /// DataPagerAll control.
+        /// test control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager DataPagerAll;
+        protected global::System.Web.UI.WebControls.Literal test;
     }
 }
