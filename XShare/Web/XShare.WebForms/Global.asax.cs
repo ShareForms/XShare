@@ -1,4 +1,4 @@
-﻿namespace XShare.WebForms
+namespace XShare.WebForms
 {
     using System;
     using System.Collections.Generic;
