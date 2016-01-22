@@ -36,10 +36,14 @@ namespace XShare.WebForms.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
+            this.ChangeMail.Visible = true;
+
+            this.CurrentMail.Text = manager.GetEmail(User.Identity.GetUserId());
+
             HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
             // Enable this after setting up two-factor authentientication
-            //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
+            PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
 
             TwoFactorEnabled = manager.GetTwoFactorEnabled(User.Identity.GetUserId());
 
@@ -73,6 +77,7 @@ namespace XShare.WebForms.Account
                         : message == "RemoveLoginSuccess" ? "The account was removed."
                         : message == "AddPhoneNumberSuccess" ? "Phone number has been added"
                         : message == "RemovePhoneNumberSuccess" ? "Phone number was removed"
+                        : message == "ChangeMailSuccess" ? "Your e-mail has been changed"
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
