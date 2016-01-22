@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="All Cars" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="All.aspx.cs" Inherits="XShare.WebForms.Cars.All" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container fluid">
+    <div class="container-fluid">
         <asp:LoginView runat="server" ViewStateMode="Disabled">
             <LoggedInTemplate>
                 <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2">
-                        <asp:Button Text="Add new Car" runat="server" CssClass="btn btn-lg btn-primary" />
+                        <h2>You can: <a runat="server" href="~/Cars/Add" class="btn btn-lg btn-success">Add New Car</a> </h2>       
                     </div>
                 </div>
             </LoggedInTemplate>
@@ -59,7 +59,7 @@
                                 </td>
                                 <td>
                                     <asp:HyperLink NavigateUrl='<%# "Details/" + Item.Id %>' runat="server"> Details
-                            </asp:HyperLink>
+                                    </asp:HyperLink>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -71,6 +71,5 @@
                 </div>
             </div>
         </div>
-        <asp:Literal Text="" ID="test" runat="server" />
     </div>
 </asp:Content>
