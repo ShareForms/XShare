@@ -6,16 +6,16 @@
     using XShare.Data.Repositories;
     using XShare.Services.Data.Contracts;
 
-    public class CarServcie : ICarService
+    public class CarService : ICarService
     {
         private readonly IRepository<Car> cars;
 
-        public CarServcie(IRepository<Car> cars)
+        public CarService(IRepository<Car> cars)
         {
             this.cars = cars;
         }
 
-        public IQueryable<Car> AllCars(string name)
+        public IQueryable<Car> AllCars()
         {
             return this.cars.All();
         }

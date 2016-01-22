@@ -5,6 +5,6 @@
 
     public interface ICarService
     {
-        IQueryable<Car> AllCars(string name);
+        IQueryable<Car> AllCars();
     }
 }
