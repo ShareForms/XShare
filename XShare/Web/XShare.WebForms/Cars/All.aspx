@@ -19,6 +19,8 @@
                     <asp:ListView ID="ViewAllCars" runat="server"
                         SelectMethod="GridViewAll_GetData"
                         ItemType="XShare.Data.Models.Car"
+                        AllowPaging="True" 
+                        DataKeyNames="Id"
                         AutoGenerateColumns="false">
                         <LayoutTemplate>
                             <table class="table table-striped table-hover">
@@ -71,5 +73,14 @@
                 </div>
             </div>
         </div>
+        <div class="bs-component text-center">
+        <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllCars" PageSize="5" runat="server">
+            <Fields>
+                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary" />
+                <asp:NumericPagerField NumericButtonCssClass="btn btn-primary"/>
+                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary" />
+            </Fields>
+        </asp:DataPager>
+    </div>
     </div>
 </asp:Content>
