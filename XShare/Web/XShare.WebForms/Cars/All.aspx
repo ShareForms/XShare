@@ -2,6 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container fluid">
+        <asp:LoginView runat="server" ViewStateMode="Disabled">
+            <LoggedInTemplate>
+                <div class="row text-center">
+                    <div class="col-md-8 col-md-offset-2">
+                        <asp:Button Text="Add new Car" runat="server" CssClass="btn btn-lg btn-primary" />
+                    </div>
+                </div>
+            </LoggedInTemplate>
+        </asp:LoginView>
+        <br />
         <div class="row text-center">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-info">
