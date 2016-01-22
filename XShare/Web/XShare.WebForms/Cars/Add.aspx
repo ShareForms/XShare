@@ -11,38 +11,46 @@
                 <div class="col-md-6 col-md-offset-3">
                     <fieldset>
                         <div class="form-group">
-                            <label for="Description" class="col-md-2 control-label">Car Description</label>
-                            <div class="col-md-10">
-                                <asp:TextBox ID="Description" runat="server" class="form-control"></asp:TextBox>
+                            <label for="Description" class="col-md-3 control-label">Car Description</label>
+                            <div class="col-md-9">
+                                <asp:TextBox ID="Description" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="FuelEconomy" class="col-md-2 control-label">Fuel Economy</label>
-                            <div class="col-md-10">
-                                <asp:TextBox ID="FuelEconomy" runat="server" class="form-control"></asp:TextBox>
+                            <label for="FuelEconomy" class="col-md-3 control-label">Fuel Economy</label>
+                            <div class="col-md-9">
+                                <asp:TextBox ID="FuelEconomy" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="PictureUrl" class="col-md-2 control-label">Picture Url</label>
-                            <div class="col-md-10">
-                                <asp:TextBox ID="PictureUrl" runat="server" class="form-control"></asp:TextBox>
+                            <label for="PictureUrl" class="col-md-3 control-label">Picture Url</label>
+                            <div class="col-md-9">
+                                <asp:TextBox ID="PictureUrl" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group text-left">
-                            <label for="Features" class="col-md-2 control-label text-center">Features</label>
-                            <div class="col-md-10">
-                                <asp:CheckBoxList ID="Features" runat="server" SelectMethod="GetFeatures" />
+                            <label for="Features" class="col-md-3 control-label">Features</label>
+                            <div class="col-md-9">
+                                <div CssClass="form-control">
+                                    <asp:CheckBoxList ID="Features" runat="server" SelectMethod="GetFeatures"
+                                        RepeatColumns="1"
+                                        RepeatDirection="Vertical"
+                                        RepeatLayout="Flow"
+                                        TextAlign="Right"
+                                        EnableTheming="True">
+                                    </asp:CheckBoxList>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="Features" class="col-md-2 control-label">CarType</label>
-                            <div class="col-md-10">
-                                <asp:DropDownList ID="CarType" runat="server" SelectMethod="GetCarType" />
+                            <label for="CarType" class="col-md-3 control-label">CarType</label>
+                            <div class="col-md-9">
+                                <asp:DropDownList ID="CarType" runat="server" CssClass="form-control select" SelectMethod="GetCarType" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-10 col-lg-offset-2 pull-right">
-                                <asp:Button ID="Btn" runat="server" OnClick="Btn_AddCar" Text="Add Car!" CssClass="btn btn-succcess" />
+                            <div class="col-md-9 col-lg-offset-3 pull-right">
+                                <asp:Button ID="Btn" runat="server" OnClick="Btn_AddCar" Text="Add Car!" CssClass="btn btn-info full-width" />
                             </div>
                         </div>
                     </fieldset>

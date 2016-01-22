@@ -50,7 +50,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Label Text='<%# Item.FromTime %>' runat="server" />
+                                        <asp:Label Text='<%# Item.FromTime.ToShortTimeString() %>' runat="server" />
                                     </td>
                                     <td>
                                         <asp:Label Text='<%# Item.ToTime %>' runat="server" />

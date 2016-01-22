@@ -19,12 +19,18 @@ body {
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
-input[type="text"],
+/*input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
-input[type="select"] {
+input[type="select"],
+select {
     max-width: 280px;
+}*/
+
+
+input[type="checkbox"] {
+    margin-right: 4px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -32,6 +38,7 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
@@ -39,4 +46,8 @@ input[type="select"] {
 
 img {
     max-height: 300px;
+}
+
+.full-width {
+    width:100%;
 }

@@ -49,15 +49,6 @@ namespace XShare.WebForms.Cars {
         protected global::System.Web.UI.WebControls.TextBox PictureUrl;
         
         /// <summary>
-        /// CarType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CarType;
-        
-        /// <summary>
         /// Features control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace XShare.WebForms.Cars {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList Features;
+        
+        /// <summary>
+        /// CarType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CarType;
         
         /// <summary>
         /// Btn control.
