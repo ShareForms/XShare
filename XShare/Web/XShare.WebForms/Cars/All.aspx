@@ -46,7 +46,7 @@
                         <ItemTemplate runat="server">
                             <tr>
                                 <td>
-                                    <asp:Image ImageUrl='<%# Item.pictureUrl %>' Width="50px" runat="server" />
+                                    <asp:Image ImageUrl='<%# Item.PictureUrl %>' Width="50px" runat="server" />
                                 </td>
                                 <td>
                                     <asp:Label Text='<%# Item.Description %>' runat="server" />
