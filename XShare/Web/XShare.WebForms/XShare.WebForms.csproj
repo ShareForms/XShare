@@ -398,6 +398,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Cars\" />
+    <Folder Include="Reservations\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\XShare.Common\XShare.Common.csproj">
