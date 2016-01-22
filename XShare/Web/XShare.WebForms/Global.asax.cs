@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using XShare.WebForms.App_Start;
 
 namespace XShare.WebForms
 {
