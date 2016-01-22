@@ -36,3 +36,7 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+img {
+    max-height: 300px;
+}
