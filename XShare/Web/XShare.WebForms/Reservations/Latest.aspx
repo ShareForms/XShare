@@ -18,29 +18,51 @@
                     <div class="panel panel-info">
                         <div class="panel-heading text-center"><%: Title %></div>
                         <asp:ListView ID="ViewLastestReservations" runat="server"
+                            AllowPaging="True"
                             SelectMethod="GridViewAll_GetData"
                             ItemType="XShare.Data.Models.Reservation"
+                            EnableSortingAndPagingCallback="True"
+                            AllowSorting="True"
+                            DataKeyNames="Id"
                             AutoGenerateColumns="false">
                             <LayoutTemplate>
                                 <table class="table table-striped table-hover">
                                     <tr>
                                         <th class="text-center">
-                                            <asp:Literal Text="Reserved from" runat="server" />
+                                            <asp:LinkButton Text="Reserved from" runat="server"
+                                                ID="SortByFromTime"
+                                                CommandName="Sort"
+                                                CommandArgument="FromTime" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="Reserved to" runat="server" />
+                                            <asp:LinkButton Text="Reserved to" runat="server"
+                                                ID="SortByToTime"
+                                                CommandName="Sort"
+                                                CommandArgument="ToTime" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="From" runat="server" />
+                                            <asp:LinkButton Text="From" runat="server"
+                                                ID="SortByFrom"
+                                                CommandName="Sort"
+                                                CommandArgument="From" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="To" runat="server" />
+                                            <asp:LinkButton Text="To" runat="server"
+                                                ID="SortByTo"
+                                                CommandName="Sort"
+                                                CommandArgument="To" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="Car" runat="server" />
+                                            <asp:LinkButton Text="Car" runat="server"
+                                                ID="SortByDescription"
+                                                CommandName="Sort"
+                                                CommandArgument="CarId" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:Literal Text="User" runat="server" />
+                                            <asp:LinkButton Text="User" runat="server" 
+                                                ID="SortByUser"
+                                                CommandName="Sort"
+                                                CommandArgument="UserId"/>
                                         </th>
                                     </tr>
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
@@ -50,19 +72,19 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Label Text='<%# Item.FromTime %>' runat="server" />
+                                        <asp:Literal Text='<%# String.Format("{0} {1}",Item.FromTime.ToShortDateString(), Item.FromTime.ToShortTimeString())   %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.ToTime %>' runat="server" />
+                                        <asp:Literal Text='<%# String.Format("{0} {1}",Item.ToTime.ToShortDateString(), Item.ToTime.ToShortTimeString())  %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.From %>' runat="server" />
+                                        <asp:Literal Text='<%# Item.From %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.To %>' runat="server" />
+                                        <asp:Literal Text='<%# Item.To %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.Car.Description %>' runat="server" />
+                                        <asp:Literal Text='<%# Item.Car.Description %>' runat="server" />
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#  Item.User.UserName %>' runat="server" />
@@ -78,7 +100,23 @@
                     </div>
                 </div>
             </div>
-            <asp:Literal Text="" ID="test" runat="server" />
+
+            <div class="row text-center bs-component">
+                <asp:DataPager ID="PagerReservations" PagedControlID="ViewLastestReservations" runat="server" CssClass="btn-group btn-group-sm" PageSize="10">
+                    <Fields>
+                        <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
+                            ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
+                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+
+                        <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
+                            NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
+
+                        <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
+                            ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
+                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                    </Fields>
+                </asp:DataPager>
+            </div>
         </div>
     </div>
 </asp:Content>
