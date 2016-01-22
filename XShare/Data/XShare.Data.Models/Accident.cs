@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using XShare.Common.Constants;
-
-namespace XShare.Data.Models
+﻿namespace XShare.Data.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using XShare.Common.Constants;
+
     public class Accident
     {
         public int Id { get; set; }
