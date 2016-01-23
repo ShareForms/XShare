@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace XShare.WebForms.Reservations
+﻿namespace XShare.WebForms.Reservations
 {
+    using System;
+    using System.Linq;
     using Ninject;
+    using XShare.Common.Extensions;
     using XShare.Data.Models;
     using XShare.Services.Data.Contracts;
 
@@ -20,10 +16,25 @@ namespace XShare.WebForms.Reservations
         {
         }
 
-        public IQueryable<Reservation> GridViewAll_GetData()
+        public IQueryable<Reservation> GridViewAll_GetData(string sortByExpression)
         {
-            var reservations = this.ReservationService.AllReservationss();
-            return reservations;
+            var reservationsQuery = this.ReservationService.AllReservationss();
+
+            if (sortByExpression != null
+                && (sortByExpression.Contains("Car.Description")
+                        || sortByExpression.Contains("User.UserName")))
+            {
+                if (sortByExpression.EndsWith(" DESC"))
+                {
+                    reservationsQuery = reservationsQuery.OrderByDescending(sortByExpression.Substring(0, sortByExpression.Length - 5));
+                }
+                else
+                {
+                    reservationsQuery = reservationsQuery.OrderBy(sortByExpression);
+                }
+            }
+
+            return reservationsQuery;
         }
     }
 }

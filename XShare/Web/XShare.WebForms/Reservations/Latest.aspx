@@ -56,13 +56,14 @@
                                             <asp:LinkButton Text="Car" runat="server"
                                                 ID="SortByDescription"
                                                 CommandName="Sort"
-                                                CommandArgument="CarId" />
+                                                CommandArgument="Car.Description"
+                                                />
                                         </th>
                                         <th class="text-center">
                                             <asp:LinkButton Text="User" runat="server" 
                                                 ID="SortByUser"
                                                 CommandName="Sort"
-                                                CommandArgument="UserId"/>
+                                                CommandArgument="User.UserName"/>
                                         </th>
                                     </tr>
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
