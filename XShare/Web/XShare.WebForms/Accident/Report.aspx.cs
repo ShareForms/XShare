@@ -13,5 +13,10 @@ namespace XShare.WebForms.Accident
         {
 
         }
+
+        protected void Btn_Report(object sender, EventArgs e)
+        {
+            this.Response.Redirect("~/");
+        }
     }
 }
