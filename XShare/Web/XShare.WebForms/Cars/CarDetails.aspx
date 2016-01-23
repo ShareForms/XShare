@@ -16,7 +16,7 @@
                         </div>
                         <br />
                         <div>
-                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>                            
+                            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                             <asp:Label Text='<%# Item.Description %>' runat="server" />
                         </div>
                         <div>
@@ -27,12 +27,22 @@
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                             <asp:Label Text='<%# Item.Ratings.Any() ? Item.Ratings.Average(r => r.Value) : 0.0f %>' runat="server" />
                         </div>
+                        <br />
                     </ItemTemplate>
                 </asp:FormView>
                 <br />
-                <div class="back-link">
-                    <a href="/Cars/All">Back to cars</a>
+                <div class="form-group text-center">
+                    <label for="CarRate" class="col-md-3 control-label">Rate This Car</label>
+                    <div class="col-md-6">
+                        <asp:DropDownList ID="CarRate" runat="server" CssClass="form-control select" SelectMethod="GetCarRatings" />
+                    </div>
+                    <div class="col-md-3">
+                        <asp:Button ID="Btn" runat="server" OnClick="Btn_RateCar" Text="Rate!" CssClass="btn btn-info full-width" />
+                    </div>
                 </div>
+            </div>
+            <div class="back-link">
+                <a href="/Cars/All">Back to cars</a>
             </div>
         </div>
     </div>

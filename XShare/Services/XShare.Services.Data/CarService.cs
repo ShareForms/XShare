@@ -10,10 +10,24 @@
     public class CarService : ICarService
     {
         private readonly IRepository<Car> cars;
+        private readonly IRepository<Rating> ratings;
 
-        public CarService(IRepository<Car> cars)
+        public CarService(IRepository<Car> cars, IRepository<Rating> ratings)
         {
             this.cars = cars;
+            this.ratings = ratings;
+        }
+
+        public void AddRating(int carId, int rating)
+        {
+            var ratingToAdd = new Rating
+            {
+                CarId = carId,
+                Value = rating
+            };
+
+            this.ratings.Add(ratingToAdd);
+            this.ratings.SaveChanges();
         }
 
         public IQueryable<Car> AllCars()
@@ -23,6 +37,7 @@
 
         public Car CarById(int id)
         {
+            object serachId = id;
             return this.cars.GetById(id);
         }
 
