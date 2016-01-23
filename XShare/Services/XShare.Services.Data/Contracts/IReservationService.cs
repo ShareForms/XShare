@@ -6,5 +6,7 @@ namespace XShare.Services.Data.Contracts
     public interface IReservationService
     {
         IQueryable<Reservation> AllReservationss();
+
+        int ReservationCount();
     }
 }

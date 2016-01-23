@@ -45,5 +45,10 @@
 
             return userAsObject.Id;
         }
+
+        public int UserCount()
+        {
+            return this.users.All().Count();
+        }
     }
 }

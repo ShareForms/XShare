@@ -1,5 +1,6 @@
 ﻿namespace XShare.Services.Data
 {
+    using System;
     using System.Linq;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
@@ -22,6 +23,10 @@
 
             return RESULT;
         }
-            
+
+        public int ReservationCount()
+        {
+            return this.reservations.All().Count();
+        }
     }
 }
