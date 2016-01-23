@@ -55,6 +55,11 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Cars/All">Our Cars</a></li>
                         <li><a runat="server" href="~/Reservations/Latest">Reservations</a></li>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <LoggedInTemplate>
+                                <li><a runat="server" href="~/Accident/Report">Report an Accident</a></li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
