@@ -46,7 +46,10 @@
                 </div>
             </div>
             <div class="back-link">
-                <a href="/Cars/All">Back to cars</a>
+                <asp:button id="btnCancel" runat="server" 
+                    text="Go back" 
+                    OnClientClick="JavaScript:window.history.back(1); return false;" 
+                    CssClass="btn btn-default"/>
             </div>
         </div>
     </div>
