@@ -209,8 +209,10 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Errors\404.aspx" />
+    <Content Include="Reservations\Details.aspx" />
     <Content Include="Reservations\Latest.aspx" />
     <Content Include="Reservations\Make.aspx" />
+    <Content Include="Reservations\MyReservations.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -448,6 +450,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservations\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservations\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservations\Latest.aspx.cs">
       <DependentUpon>Latest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +470,13 @@
     </Compile>
     <Compile Include="Reservations\Make.aspx.designer.cs">
       <DependentUpon>Make.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\MyReservations.aspx.cs">
+      <DependentUpon>MyReservations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservations\MyReservations.aspx.designer.cs">
+      <DependentUpon>MyReservations.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

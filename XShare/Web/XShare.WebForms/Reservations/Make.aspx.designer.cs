@@ -40,6 +40,24 @@ namespace XShare.WebForms.Reservations {
         protected global::System.Web.UI.WebControls.TextBox ToTime;
         
         /// <summary>
+        /// From control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox From;
+        
+        /// <summary>
+        /// To control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox To;
+        
+        /// <summary>
         /// ViewAvailableCars control.
         /// </summary>
         /// <remarks>

@@ -22,7 +22,23 @@
                     <div class="col-md-5">
                         <asp:TextBox runat="server" ID="ToTime" CssClass="form-control" TextMode="DateTimeLocal" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="ToTime"
-                            CssClass="text-danger" ErrorMessage="Start date and time of reservation is required." />
+                            CssClass="text-danger" ErrorMessage="End date and time of reservation is required." />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="From" CssClass="col-md-3 control-label">Take from</asp:Label>
+                    <div class="col-md-5">
+                        <asp:TextBox runat="server" ID="From" CssClass="form-control" TextMode="SingleLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="From"
+                            CssClass="text-danger" ErrorMessage="Take location is required." />
+                    </div>
+                </div>
+                       <div class="form-group">
+                    <asp:Label runat="server" AssociatedControlID="To" CssClass="col-md-3 control-label">Take from</asp:Label>
+                    <div class="col-md-5">
+                        <asp:TextBox runat="server" ID="To" CssClass="form-control" TextMode="SingleLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="To"
+                            CssClass="text-danger" ErrorMessage="Release location is required." />
                     </div>
                 </div>
 
@@ -75,6 +91,9 @@
                                     <th class="text-center">
                                         <asp:Literal Text="Details" runat="server" />
                                     </th>
+                                     <th class="text-center">
+                                        <asp:Literal Text="Reserve this car" runat="server" />
+                                    </th>
                                 </tr>
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server" />
                             </table>
@@ -97,6 +116,14 @@
                                 <td>
                                     <asp:HyperLink NavigateUrl='<%# "Details/" + Item.Id %>' runat="server"> Details
                                     </asp:HyperLink>
+                                </td>
+                                   <td>
+                                    <asp:Button runat="server" 
+                                        Text="Reserve" 
+                                        CssClass="btn btn-sm btn-success" 
+                                        OnClick="Btn_Reservation_OnClick"
+                                        CommandArgument="<%# Item.Id %>">
+                                    </asp:Button>
                                 </td>
                             </tr>
                         </ItemTemplate>

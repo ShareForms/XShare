@@ -17,11 +17,38 @@
 
         public IQueryable<Reservation> AllReservationss()
         {
-            var RESULT = this.reservations.All();
+            var query = this.reservations.All();
 
-           // var HUC = RESULT.ToList();
+            return query;
+        }
 
-            return RESULT;
+        public Reservation CreateReservation(
+            DateTime fromTime,
+            DateTime toTime,
+            string fromLocation,
+            string toLocation,
+            int carId,
+            string userId)
+        {
+            var reservationToAdd = new Reservation
+            {
+                FromTime = fromTime,
+                ToTime = toTime,
+                From = fromLocation,
+                To = toLocation,
+                CarId = carId,
+                UserId = userId
+            };
+
+            this.reservations.Add(reservationToAdd);
+            this.reservations.SaveChanges();
+
+            return reservationToAdd;
+        }
+
+        public Reservation GetById(int id)
+        {
+            return this.reservations.GetById(id);
         }
 
         public int ReservationCount()
