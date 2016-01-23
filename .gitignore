@@ -231,3 +231,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+/XShare/Web/XShare.Webforms/Uploaded_files
