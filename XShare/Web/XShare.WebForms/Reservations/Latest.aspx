@@ -6,15 +6,15 @@
             <asp:LoginView runat="server" ViewStateMode="Disabled">
                 <LoggedInTemplate>
                     <div class="row text-center">
-                        <div class="col-md-8 col-md-offset-2">
-                            <asp:Button Text="Make new reservation" runat="server" CssClass="btn btn-lg btn-primary" />
+                        <div class="col-md-12">
+                            <h2><a runat="server" href="~/Reservations/Make" class="btn btn-lg btn-success full-width">Reserve car!</a> </h2>
                         </div>
                     </div>
                 </LoggedInTemplate>
             </asp:LoginView>
             <br />
             <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading text-center"><%: Title %></div>
                         <asp:ListView ID="ViewLastestReservations" runat="server"

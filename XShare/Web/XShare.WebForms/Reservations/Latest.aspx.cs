@@ -20,17 +20,17 @@
         {
             var reservationsQuery = this.ReservationService.AllReservationss();
 
-            if (sortByExpression != null
-                && (sortByExpression.Contains("Car.Description")
-                        || sortByExpression.Contains("User.UserName")))
+            if (sortByExpression != null)
             {
                 if (sortByExpression.EndsWith(" DESC"))
                 {
-                    reservationsQuery = reservationsQuery.OrderByDescending(sortByExpression.Substring(0, sortByExpression.Length - 5));
+                    reservationsQuery = reservationsQuery
+                        .OrderByDescending(sortByExpression.Substring(0, sortByExpression.Length - 5));
                 }
                 else
                 {
-                    reservationsQuery = reservationsQuery.OrderBy(sortByExpression);
+                    reservationsQuery = reservationsQuery
+                        .OrderBy(sortByExpression);
                 }
             }
 

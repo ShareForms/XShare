@@ -208,6 +208,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Errors\404.aspx" />
     <Content Include="Reservations\Latest.aspx" />
+    <Content Include="Reservations\Make.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -437,6 +438,13 @@
     </Compile>
     <Compile Include="Reservations\Latest.aspx.designer.cs">
       <DependentUpon>Latest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservations\Make.aspx.cs">
+      <DependentUpon>Make.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservations\Make.aspx.designer.cs">
+      <DependentUpon>Make.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

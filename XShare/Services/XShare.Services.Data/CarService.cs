@@ -37,5 +37,12 @@
 
             return carToAdd;
         }
+
+        public IQueryable<Car> GetFreeCarsForTimeInterval(DateTime from, DateTime to)
+        {
+            return this.cars.All()
+                .Where(c => c.Reservations.All(r => ((from < r.FromTime && to < r.ToTime)
+                                                        || (from > r.ToTime && to > r.ToTime))));
+        }
     }
 }
