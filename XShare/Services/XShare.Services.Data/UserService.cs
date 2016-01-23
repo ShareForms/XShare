@@ -24,5 +24,26 @@
                .All()
                .Where(x => x.UserName == name);
         }
+
+        public int GetLastCarId(string name)
+        {
+            var reservationAsObject = this.users
+               .All()
+               .Where(x => x.UserName == name)
+               .Select(r => r.Reservations.OrderByDescending(d => d.ToTime).FirstOrDefault())
+               .FirstOrDefault();
+
+            return reservationAsObject.CarId;
+        }
+
+        public string GetUserId(string name)
+        {
+            var userAsObject = this.users
+               .All()
+               .Where(x => x.UserName == name)
+               .FirstOrDefault();
+
+            return userAsObject.Id;
+        }
     }
 }

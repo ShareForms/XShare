@@ -26,6 +26,7 @@
             string adressToAdd = string.Empty;
             var descriptionToAdd = this.Description.Text;
             var locationToAdd = this.Location.Text ?? string.Empty;
+            string userName = string.Empty;
 
             if (Image.HasFile)
             {
@@ -35,16 +36,11 @@
                          Image.PostedFile.ContentType == "image/png" )
                     {
                         if (Image.PostedFile.ContentLength < 1048576)
-                        {
-                            string filename = Path.GetFileName(Image.FileName);
-                            string userName = this.User.Identity.Name;
-
-                            if (!Directory.Exists("Uploaded_Files/" + userName))
-                            {
-                                Directory.CreateDirectory("Uploaded_Files/" + userName);
-                            }
-                            Image.SaveAs(Server.MapPath("~/Uploaded_Files/") + userName + "/" + filename);
-                            adressToAdd = "~/Uploaded_Files/" + userName + "/" + filename;
+                        {                            
+                            userName = this.User.Identity.Name;
+                            string filename = userName + Path.GetFileName(Image.FileName);
+                            Image.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
+                            adressToAdd = "~/Uploaded_Files/" + filename;
                         }
                         else
                             ErrorMessage.Text = "Upload status: The file has to be less than 1 MB!";
@@ -56,11 +52,6 @@
                 {
                     ErrorMessage.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
-            }
-
-            if (this.User != null && this.User.Identity.IsAuthenticated)
-            {
-                var userName = HttpContext.Current.User.Identity.Name;
             }
 
             // this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, 1, "pesho");           
