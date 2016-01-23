@@ -1,13 +1,7 @@
 ﻿namespace XShare.WebForms.Accident
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Security.AccessControl;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
     using Ninject;
     using XShare.Services.Data.Contracts;
 
@@ -15,6 +9,9 @@
     {
         [Inject]
         public IAccidentService AccidentService { get; set; }
+
+        [Inject]
+        public IUserService UserService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,7 +51,12 @@
                 }
             }
 
-            // this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, 1, "pesho");           
+            var userId = this.UserService.GetUserId(userName);
+            var carId = this.UserService.GetLastCarId(userName);
+
+            this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, carId, userId);
+
+            this.Response.Redirect("~/");
         }
     }
 }
