@@ -9,8 +9,13 @@
     {
         IQueryable<Car> AllCars();
 
+        Car CarById(int id);
+
         Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType);
 
+
         IQueryable<Car> GetFreeCarsForTimeInterval(DateTime from, DateTime to);
+
+        void AddRating(int carId, int rating);
     }
 }

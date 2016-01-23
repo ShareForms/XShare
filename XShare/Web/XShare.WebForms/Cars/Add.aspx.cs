@@ -39,6 +39,8 @@
             }
 
             this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
+
+            this.Response.Redirect("~/Cars/All");
         }
 
         public IQueryable<string> GetFeatures()
