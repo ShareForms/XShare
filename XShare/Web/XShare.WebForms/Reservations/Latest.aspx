@@ -56,7 +56,7 @@
                                             <asp:LinkButton Text="Car" runat="server"
                                                 ID="SortByDescription"
                                                 CommandName="Sort"                                                
-                                                CommandArgument="Car.Details" />
+                                                CommandArgument="Car.Description" />
                                         </th>
                                         <th class="text-center">
                                             <asp:LinkButton Text="User" runat="server" 
