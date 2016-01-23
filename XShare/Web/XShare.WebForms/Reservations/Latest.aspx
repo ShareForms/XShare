@@ -26,47 +26,52 @@
                             DataKeyNames="Id"
                             AutoGenerateColumns="false">
                             <LayoutTemplate>
-                                <table class="table table-striped table-hover">
-                                    <tr>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Reserved from" runat="server"
-                                                ID="SortByFromTime"
-                                                CommandName="Sort"
-                                                CommandArgument="FromTime" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Reserved to" runat="server"
-                                                ID="SortByToTime"
-                                                CommandName="Sort"
-                                                CommandArgument="ToTime" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="From" runat="server"
-                                                ID="SortByFrom"
-                                                CommandName="Sort"
-                                                CommandArgument="From" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="To" runat="server"
-                                                ID="SortByTo"
-                                                CommandName="Sort"
-                                                CommandArgument="To" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Car" runat="server"
-                                                ID="SortByDescription"
-                                                CommandName="Sort"                                                
-                                                CommandArgument="Car.Description" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="User" runat="server" 
-                                                ID="SortByUser"
-                                                CommandName="Sort"
-                                                CommandArgument="User.UserName"/>
-                                        </th>
-                                    </tr>
-                                    <asp:PlaceHolder ID="itemplaceholder" runat="server" />
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <tr>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Reserved from" runat="server"
+                                                    ID="SortByFromTime"
+                                                    CommandName="Sort"
+                                                    CommandArgument="FromTime" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Reserved to" runat="server"
+                                                    ID="SortByToTime"
+                                                    CommandName="Sort"
+                                                    CommandArgument="ToTime" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="From" runat="server"
+                                                    ID="SortByFrom"
+                                                    CommandName="Sort"
+                                                    CommandArgument="From" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="To" runat="server"
+                                                    ID="SortByTo"
+                                                    CommandName="Sort"
+                                                    CommandArgument="To" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Car" runat="server"
+                                                    ID="SortByDescription"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Car.Description" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="User" runat="server"
+                                                    ID="SortByUser"
+                                                    CommandName="Sort"
+                                                    CommandArgument="User.UserName" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:Literal Text="Details" runat="server" />
+                                            </th>
+                                        </tr>
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                    </table>
+                                </div>
                             </LayoutTemplate>
 
                             <ItemTemplate>
@@ -88,7 +93,10 @@
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#  Item.User.UserName %>' runat="server" />
-
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink NavigateUrl='<%# string.Format("~/Reservations/Details?id={0}", Item.Id) %>' runat="server"> Details
+                                        </asp:HyperLink>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -102,7 +110,7 @@
             </div>
 
             <div class="row text-center bs-component">
-                <asp:DataPager ID="PagerReservations" PagedControlID="ViewLastestReservations" runat="server" CssClass="btn-group btn-group-sm" PageSize="10">
+                <asp:DataPager ID="PagerReservations" PagedControlID="ViewLastestReservations" runat="server" CssClass="btn-group btn-group-sm" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
                             ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
