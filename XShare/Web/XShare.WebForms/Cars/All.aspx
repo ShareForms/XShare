@@ -71,7 +71,7 @@
                                     <asp:Label Text='<%# Item.FuelEconomy + " l/100 km" %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:HyperLink NavigateUrl='<%# "Details/" + Item.Id %>' runat="server"> Details
+                                    <asp:HyperLink NavigateUrl='<%# string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>' runat="server"> Details
                                     </asp:HyperLink>
                                 </td>
                             </tr>
