@@ -8,6 +8,8 @@ namespace XShare.Services.Data.Contracts
     {
         IQueryable<Reservation> AllReservationss();
 
+        int ReservationCount();
+
         Reservation CreateReservation(
             DateTime fromTime,
             DateTime toTime,

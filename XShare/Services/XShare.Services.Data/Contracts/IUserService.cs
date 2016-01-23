@@ -12,5 +12,7 @@
         string GetUserId(string name);
 
         int GetLastCarId(string name);
+
+        int UserCount();
     }
 }

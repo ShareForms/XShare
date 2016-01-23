@@ -41,6 +41,11 @@
             return this.cars.GetById(id);
         }
 
+        public int CarCount()
+        {
+            return this.cars.All().Count();
+        }
+
         public Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType)
         {
             var carToAdd = new Car

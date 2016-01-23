@@ -1,7 +1,6 @@
 ﻿namespace XShare.Services.Data
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
@@ -50,6 +49,11 @@
         public Reservation GetById(int id)
         {
             return this.reservations.GetById(id);
+        }
+
+        public int ReservationCount()
+        {
+            return this.reservations.All().Count();
         }
     }
 }
