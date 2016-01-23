@@ -8,5 +8,9 @@
     public interface IUserService
     {
         IQueryable<User> AllByName(string name);
+
+        string GetUserId(string name);
+
+        int GetLastCarId(string name);
     }
 }
