@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="bs-component text-center">
-            <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllCars" PageSize="10" runat="server" CssClass="btn-group btn-group-sm">
+            <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllCars" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
                 <Fields>
                     <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
                         ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"

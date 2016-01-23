@@ -1,9 +1,11 @@
 ﻿namespace XShare.Data.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     public class Reservation
     {
+        [Key]
         public int Id { get; set; }
 
         public string From { get; set; }
@@ -18,7 +20,7 @@
 
         public virtual Car Car { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public virtual User User { get; set; }
     }
