@@ -6,7 +6,7 @@
             <LoggedInTemplate>
                 <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2>You can: <a runat="server" href="~/Cars/Add" class="btn btn-lg btn-success">Add New Car</a> </h2>       
+                        <h2>You can: <a runat="server" href="~/Cars/Add" class="btn btn-lg btn-success">Add New Car</a> </h2>
                     </div>
                 </div>
             </LoggedInTemplate>
@@ -19,7 +19,9 @@
                     <asp:ListView ID="ViewAllCars" runat="server"
                         SelectMethod="GridViewAll_GetData"
                         ItemType="XShare.Data.Models.Car"
-                        AllowPaging="True" 
+                        AllowPaging="True"
+                        EnableSortingAndPagingCallback="True"
+                        AllowSorting="True"
                         DataKeyNames="Id"
                         AutoGenerateColumns="false">
                         <LayoutTemplate>
@@ -29,13 +31,22 @@
                                         <asp:Literal Text="Image" runat="server" />
                                     </th>
                                     <th class="text-center">
-                                        <asp:Literal Text="Model" runat="server" />
+                                        <asp:LinkButton Text="Model" runat="server"
+                                            ID="SortByModel"
+                                            CommandName="Sort"
+                                            CommandArgument="Description" />
                                     </th>
                                     <th class="text-center">
-                                        <asp:Literal Text="Type" runat="server" />
+                                        <asp:LinkButton Text="Type" runat="server"
+                                            ID="SortByCarType"
+                                            CommandName="Sort"
+                                            CommandArgument="CarType" />
                                     </th>
                                     <th class="text-center">
-                                        <asp:Literal Text="Fuel Economy" runat="server" />
+                                        <asp:LinkButton Text="Fuel Economy" runat="server"
+                                            ID="SortByFuelEconomy"
+                                            CommandName="Sort"
+                                            CommandArgument="FuelEconomy" />
                                     </th>
                                     <th class="text-center">
                                         <asp:Literal Text="Details" runat="server" />
@@ -74,13 +85,20 @@
             </div>
         </div>
         <div class="bs-component text-center">
-        <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllCars" PageSize="5" runat="server">
-            <Fields>
-                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary" />
-                <asp:NumericPagerField NumericButtonCssClass="btn btn-primary"/>
-                <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" ButtonCssClass="btn btn-primary" />
-            </Fields>
-        </asp:DataPager>
-    </div>
+            <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllCars" PageSize="10" runat="server" CssClass="btn-group btn-group-sm">
+                <Fields>
+                    <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
+                        ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
+                        ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+
+                    <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
+                        NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
+
+                    <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
+                        ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
+                        ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                </Fields>
+            </asp:DataPager>
+        </div>
     </div>
 </asp:Content>

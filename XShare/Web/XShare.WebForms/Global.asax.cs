@@ -8,6 +8,7 @@ namespace XShare.WebForms
     using System.Web.Routing;
     using System.Web.Security;
     using System.Web.SessionState;
+    using System.Web.UI.WebControls;
 
     public class Global : HttpApplication
     {
@@ -17,6 +18,8 @@ namespace XShare.WebForms
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DatabaseConfig.Initialize();
+
+            WebControl.DisabledCssClass = "customDisabledClassName";
         }
     }
 }
