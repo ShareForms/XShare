@@ -20,9 +20,7 @@
         {
             var reservationsQuery = this.ReservationService.AllReservationss();
 
-            if (sortByExpression != null
-                && (sortByExpression.Contains("Car.Description")
-                        || sortByExpression.Contains("User.UserName")))
+            if (sortByExpression != null)
             {
                 if (sortByExpression.EndsWith(" DESC"))
                 {

@@ -193,6 +193,7 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Cars\Add.aspx" />
     <Content Include="Cars\All.aspx" />
+    <Content Include="Cars\CarDetails.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Assets\Images\x-sign.png" />
     <Content Include="Content\bootstrap.css" />
@@ -397,6 +398,13 @@
     </Compile>
     <Compile Include="Cars\All.aspx.designer.cs">
       <DependentUpon>All.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cars\CarDetails.aspx.cs">
+      <DependentUpon>CarDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cars\CarDetails.aspx.designer.cs">
+      <DependentUpon>CarDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

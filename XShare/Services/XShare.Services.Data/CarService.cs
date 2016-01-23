@@ -21,6 +21,11 @@
             return this.cars.All();
         }
 
+        public Car CarById(int id)
+        {
+            return this.cars.GetById(id);
+        }
+
         public Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType)
         {
             var carToAdd = new Car
