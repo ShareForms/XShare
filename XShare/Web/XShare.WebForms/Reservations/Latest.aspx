@@ -77,25 +77,25 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Literal Text='<%# String.Format("{0} {1}",Item.FromTime.ToShortDateString(), Item.FromTime.ToShortTimeString())   %>' runat="server" />
+                                        <asp:Literal Text='<%#: String.Format("{0} {1}",Item.FromTime.ToShortDateString(), Item.FromTime.ToShortTimeString())   %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Literal Text='<%# String.Format("{0} {1}",Item.ToTime.ToShortDateString(), Item.ToTime.ToShortTimeString())  %>' runat="server" />
+                                        <asp:Literal Text='<%#: String.Format("{0} {1}",Item.ToTime.ToShortDateString(), Item.ToTime.ToShortTimeString())  %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Literal Text='<%# Item.From %>' runat="server" />
+                                        <asp:Literal Text='<%#: Item.From %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Literal Text='<%# Item.To %>' runat="server" />
+                                        <asp:Literal Text='<%#: Item.To %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Literal Text='<%# Item.Car.Description %>' runat="server" />
+                                        <asp:Literal Text='<%#: Item.Car.Description %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%#  Item.User.UserName %>' runat="server" />
+                                        <asp:Label Text='<%#:  Item.User.UserName %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:HyperLink NavigateUrl='<%# string.Format("~/Reservations/Details?id={0}", Item.Id) %>' runat="server"> Details
+                                        <asp:HyperLink NavigateUrl='<%#: string.Format("~/Reservations/Details?id={0}", Item.Id) %>' runat="server"> Details
                                         </asp:HyperLink>
                                     </td>
                                 </tr>

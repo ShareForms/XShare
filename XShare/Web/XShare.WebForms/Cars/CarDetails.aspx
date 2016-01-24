@@ -12,20 +12,20 @@
                             <h1><%: Title %></h1>
                         </header>
                         <div>
-                            <asp:Image ImageUrl='<%# Item.PictureUrl %>' Width="75%" runat="server" />
+                            <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="75%" runat="server" />
                         </div>
                         <br />
                         <div>
                             <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-                            <asp:Label Text='<%# Item.Description %>' runat="server" />
+                            <asp:Label Text='<%#: Item.Description %>' runat="server" />
                         </div>
                         <div>
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                            <asp:Label Text='<%# Item.CarType %>' runat="server" />
+                            <asp:Label Text='<%#: Item.CarType %>' runat="server" />
                         </div>
                         <div>
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <asp:Label Text='<%# string.Format("{0:F2}", Item.Ratings.Any() ? Item.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
+                            <asp:Label Text='<%#: string.Format("{0:F2}", Item.Ratings.Any() ? Item.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
                         </div>
                         <br />
                     </ItemTemplate>

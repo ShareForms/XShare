@@ -1,4 +1,8 @@
-﻿namespace XShare.WebForms.Cars
+﻿using System;
+using System.Linq;
+using XShare.Data.Models;
+
+namespace XShare.WebForms.Cars
 {
     using System;
     using System.Collections.Generic;
@@ -25,26 +29,28 @@
 
         protected void Btn_AddCar(object sender, EventArgs e)
         {
-            var carDescription = this.Description.Text;
-            var carFuelEconomy = double.Parse(this.FuelEconomy.Text);
-            var carPictureUrl = this.PictureUrl.Text;
-
-            CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
-
-            var carFeatures = new HashSet<int>();
-
-            foreach (ListItem item in this.Features.Items)
+            if (Page.IsValid)
             {
-                if (item.Selected)
+
+                var carDescription = this.Description.Text;
+                var carFuelEconomy = double.Parse(this.FuelEconomy.Text);
+                var carPictureUrl = this.PictureUrl.Text;
+
+                var carFeatures = new HashSet<int>();
+
+                CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
+
+
+                foreach (ListItem item in this.Features.Items)
                 {
                     var fetureId = int.Parse(item.Value);
                     carFeatures.Add(fetureId);
                 }
+
+                this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
+
+                this.Response.Redirect("~/Cars/All");
             }
-
-            this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
-
-            this.Response.Redirect("~/Cars/All");
         }
 
         public IEnumerable<Feature> GetFeatures()

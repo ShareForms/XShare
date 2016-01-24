@@ -19,7 +19,7 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading">Take at</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.FromTime %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.FromTime %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading">From</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.From %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.From %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">Leave at</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.ToTime %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.ToTime %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="panel panel-danger">
                                     <div class="panel-heading">To</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.To %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.To %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Car model</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.Car.Description %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.Car.Description %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Car Fuel economy</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.Car.FuelEconomy %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.Car.FuelEconomy %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">Car Type</div>
                                     <div class="panel-body">
-                                        <asp:Label Text='<%# Item.Car.CarType %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.Car.CarType %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                     <div class="panel-heading">Car Rating</div>
                                     <div class="panel-body">
                                         <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                        <asp:Label Text='<%# string.Format("{0:F2}", Item.Car.Ratings.Any() ? Item.Car.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
+                                        <asp:Label Text='<%#: string.Format("{0:F2}", Item.Car.Ratings.Any() ? Item.Car.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
                                     </div>
                                 </div>
                             </div>
@@ -94,11 +94,11 @@
                             <div class="col-md-6 col-md-offset-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <asp:HyperLink NavigateUrl='<%# string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Car.Id) %>' runat="server"> Car
+                                        <asp:HyperLink NavigateUrl='<%#: string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Car.Id) %>' runat="server"> Car
                                     </asp:HyperLink>
                                     </div>
                                     <div class="panel-body">
-                                        <asp:Image ImageUrl='<%# Item.Car.PictureUrl %>' Width="75%" runat="server" />
+                                        <asp:Image ImageUrl='<%#: Item.Car.PictureUrl %>' Width="75%" runat="server" />
                                     </div>
                                 </div>
                             </div>

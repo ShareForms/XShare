@@ -40,21 +40,24 @@
 
         protected void Btn_Reservation_OnClick(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            int carId = int.Parse(btn.CommandArgument);
-            string userId = this.UsersService.GetUserId(this.User.Identity.Name);
+            if (Page.IsValid)
+            {
+                Button btn = (Button)sender;
+                int carId = int.Parse(btn.CommandArgument);
+                string userId = this.UsersService.GetUserId(this.User.Identity.Name);
 
-            var newReservation = this.ReservationService.CreateReservation(
-                DateTime.Parse(this.FromTime.Text),
-                DateTime.Parse(this.ToTime.Text),
-                this.From.Text,
-                this.To.Text,
-                carId,
-                userId);
+                var newReservation = this.ReservationService.CreateReservation(
+                    DateTime.Parse(this.FromTime.Text),
+                    DateTime.Parse(this.ToTime.Text),
+                    this.From.Text,
+                    this.To.Text,
+                    carId,
+                    userId);
 
-            var id = newReservation.Id;
+                var id = newReservation.Id;
 
-            Response.Redirect("/Reservations/Details?id=" + id);
+                Response.Redirect("/Reservations/Details?id=" + id);
+            }
         }
     }
 }

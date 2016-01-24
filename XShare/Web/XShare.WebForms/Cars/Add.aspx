@@ -14,18 +14,29 @@
                             <label for="Description" class="col-md-3 control-label">Car Description</label>
                             <div class="col-md-9">
                                 <asp:TextBox ID="Description" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ErrorMessage="Description is requared" ControlToValidate="Description" runat="server" ForeColor="Red" />
+                                <asp:RegularExpressionValidator ErrorMessage="Description is maximum 200 characters long" ControlToValidate="Description" runat="server" ForeColor="Red"
+                                    ValidationExpression="^[\s\S]{1,200}$" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="FuelEconomy" class="col-md-3 control-label">Fuel Economy</label>
                             <div class="col-md-9">
                                 <asp:TextBox ID="FuelEconomy" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RangeValidator ErrorMessage="Fuel Econmomy must be between 3 and 30 l/100km" ControlToValidate="FuelEconomy" runat="server" ForeColor="Red"
+                                    MinimumValue="3"
+                                    MaximumValue="30"
+                                    Type="Double" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="PictureUrl" class="col-md-3 control-label">Picture Url</label>
                             <div class="col-md-9">
                                 <asp:TextBox ID="PictureUrl" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ErrorMessage="Picture Url is mandatory" ControlToValidate="PictureUrl" runat="server" ForeColor="Red" />
+                                <asp:RegularExpressionValidator ErrorMessage="Picture Url is not valid" ControlToValidate="PictureUrl"
+                                    ValidationExpression="(?:([^:/?#]+):)?(?://([^/?#]*))?([^?#]*\.(?:jpg|gif|png))(?:\?([^#]*))?(?:#(.*))?"
+                                    runat="server" />
                             </div>
                         </div>
                         <div class="form-group text-left">
@@ -43,7 +54,7 @@
                                         EnableTheming="True">
                                     </asp:CheckBoxList>
                                 </div>
-                            </div>
+                        </div>
                         </div>
                         <div class="form-group">
                             <label for="CarType" class="col-md-3 control-label">CarType</label>
