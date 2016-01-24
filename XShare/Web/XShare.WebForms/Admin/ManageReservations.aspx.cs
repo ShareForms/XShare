@@ -41,7 +41,11 @@
 
         public IQueryable<Reservation> GridViewAll_GetData(string sortByExpression)
         {
-            var reservationsQuery = this.ReservationService.AllReservationss();
+            var reservationsQuery = this.ReservationService.GetFiltered(
+                this.TB_FiltreFromLocation.Text,
+                this.TB_FiltreToLocation.Text,
+                this.TB_FiltreByCarModel.Text,
+                this.TB_FiltreByUser.Text);
 
             if (sortByExpression != null)
             {
@@ -58,6 +62,21 @@
             }
 
             return reservationsQuery;
+        }
+
+        protected void OnFilterClick(object sender, EventArgs e)
+        {
+            this.ViewLastestReservations.DataBind();
+        }
+
+        protected void OnClearFIltersClick(object sender, EventArgs e)
+        {
+            this.TB_FiltreFromLocation.Text = null;
+            this.TB_FiltreToLocation.Text = null;
+            this.TB_FiltreByCarModel.Text = null;
+            this.TB_FiltreByUser.Text = null;
+
+            this.ViewLastestReservations.DataBind();
         }
     }
 }

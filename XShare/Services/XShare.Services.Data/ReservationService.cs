@@ -74,5 +74,32 @@
 
             this.reservations.SaveChanges();
         }
+
+        public IQueryable<Reservation> GetFiltered(string from, string to, string carModel, string userName)
+        {
+            var reservationsQuery = this.reservations.All();
+
+            if (!string.IsNullOrEmpty(from))
+            {
+                reservationsQuery = reservationsQuery.Where(r => r.From.Contains(from));
+            }
+
+            if (!string.IsNullOrEmpty(to))
+            {
+                reservationsQuery = reservationsQuery.Where(r => r.To.Contains(to));
+            }
+
+            if (!string.IsNullOrEmpty(carModel))
+            {
+                reservationsQuery = reservationsQuery.Where(r => r.Car.Description.Contains(carModel));
+            }
+
+            if (!string.IsNullOrEmpty(userName))
+            {
+                reservationsQuery = reservationsQuery.Where(r => r.User.UserName.Contains(userName));
+            }
+
+            return reservationsQuery;
+        }
     }
 }

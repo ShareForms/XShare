@@ -13,6 +13,60 @@ namespace XShare.WebForms.Admin {
     public partial class ManageReservations {
         
         /// <summary>
+        /// LB_ClearFilters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LB_ClearFilters;
+        
+        /// <summary>
+        /// TB_FiltreFromLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreFromLocation;
+        
+        /// <summary>
+        /// TB_FiltreToLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreToLocation;
+        
+        /// <summary>
+        /// TB_FiltreByCarModel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreByCarModel;
+        
+        /// <summary>
+        /// TB_FiltreByUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreByUser;
+        
+        /// <summary>
+        /// LB_FilterFromLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LB_FilterFromLocation;
+        
+        /// <summary>
         /// ViewLastestReservations control.
         /// </summary>
         /// <remarks>

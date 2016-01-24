@@ -11,18 +11,22 @@
         {
             return ApplyOrder<T>(source, property, "OrderBy");
         }
+
         public static IOrderedQueryable<T> OrderByDescending<T>(this IQueryable<T> source, string property)
         {
             return ApplyOrder<T>(source, property, "OrderByDescending");
         }
+
         public static IOrderedQueryable<T> ThenBy<T>(this IOrderedQueryable<T> source, string property)
         {
             return ApplyOrder<T>(source, property, "ThenBy");
         }
+
         public static IOrderedQueryable<T> ThenByDescending<T>(this IOrderedQueryable<T> source, string property)
         {
             return ApplyOrder<T>(source, property, "ThenByDescending");
         }
+
         static IOrderedQueryable<T> ApplyOrder<T>(IQueryable<T> source, string property, string methodName)
         {
             string[] props = property.Split('.');

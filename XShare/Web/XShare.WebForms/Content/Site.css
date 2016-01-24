@@ -67,3 +67,11 @@ img {
 .no-wrap {
     white-space: nowrap;
 }
+
+.wrap {
+    white-space: normal;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th{
+     vertical-align: middle;
+}

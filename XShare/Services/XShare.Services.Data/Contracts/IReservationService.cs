@@ -23,5 +23,7 @@ namespace XShare.Services.Data.Contracts
         void DeleteById(int id);
 
         void UpdateReservation(Reservation item);
+
+        IQueryable<Reservation> GetFiltered(string from, string to, string carModel, string userName);
     }
 }
