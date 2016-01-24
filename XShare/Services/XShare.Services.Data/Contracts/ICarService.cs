@@ -17,5 +17,7 @@
         IQueryable<Car> GetFreeCarsForTimeInterval(DateTime from, DateTime to);
 
         void AddRating(int carId, int rating);
+
+        int CarCount();
     }
 }

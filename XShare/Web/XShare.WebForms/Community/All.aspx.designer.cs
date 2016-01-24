@@ -7,36 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XShare.WebForms {
+namespace XShare.WebForms.Clients {
     
     
-    public partial class About {
+    public partial class All {
         
         /// <summary>
-        /// UsersCount control.
+        /// ViewAllUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsersCount;
+        protected global::System.Web.UI.WebControls.ListView ViewAllUsers;
         
         /// <summary>
-        /// ReservationsCount control.
+        /// PagerReservations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ReservationsCount;
-        
-        /// <summary>
-        /// CarsCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CarsCount;
+        protected global::System.Web.UI.WebControls.DataPager PagerReservations;
     }
 }
