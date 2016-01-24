@@ -55,5 +55,24 @@
         {
             return this.reservations.All().Count();
         }
+
+        public void DeleteById(int id)
+        {
+            Reservation itemToDelet = this.reservations.GetById(id);
+
+            if (itemToDelet != null)
+            {
+                this.reservations.Delete(itemToDelet);
+
+                this.reservations.SaveChanges();
+            }
+        }
+
+        public void UpdateReservation(Reservation item)
+        {
+            this.reservations.Update(item);
+
+            this.reservations.SaveChanges();
+        }
     }
 }

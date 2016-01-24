@@ -57,9 +57,13 @@ img {
 }
 
 .full-width {
-    width:100%;
+    width: 100%;
 }
 
 .dropdown-menu {
     min-width: 250px;
+}
+
+.no-wrap {
+    white-space: nowrap;
 }

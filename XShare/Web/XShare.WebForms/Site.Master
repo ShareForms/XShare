@@ -70,13 +70,13 @@
                                         <li class="dropdown" runat="server" id="AdminDropdownMenu">
                                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span>  <span class="caret"></a>
                                             <ul class="dropdown-menu" >
-                                                <li> <a href="/Admin/Users">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
+                                                <li> <a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="/Admin/Cars">Manage cars <span class="glyphicon glyphicon-usd pull-right left-margin"></span></a></li>
+                                                <li><a href="/Admin/ManageCars">Manage cars <span class="glyphicon glyphicon-usd pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="/Admin/Reservations">Manage Reservations <span class="glyphicon glyphicon-ok pull-right left-margin"></span></a></li>
+                                                <li><a href="/Admin/ManageReservations">Manage Reservations <span class="glyphicon glyphicon-ok pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="/Admin/Accidents">Manage Accidents <span class="glyphicon glyphicon-warning-sign pull-right left-margin"></span></a></li>
+                                                <li><a href="/Admin/ManageAccidents">Manage Accidents <span class="glyphicon glyphicon-warning-sign pull-right left-margin"></span></a></li>
                                             </ul>
                                             <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                             <li>

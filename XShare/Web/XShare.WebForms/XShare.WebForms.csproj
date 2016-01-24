@@ -192,16 +192,25 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Admin\EditAccident.aspx" />
+    <Content Include="Admin\EditCar.aspx" />
+    <Content Include="Admin\EditReservations.aspx" />
+    <Content Include="Admin\ManageAccidents.aspx" />
+    <Content Include="Admin\ManageCars.aspx" />
+    <Content Include="Admin\ManageReservations.aspx" />
+    <Content Include="Admin\ManageUsers.aspx" />
     <Content Include="Cars\Add.aspx" />
     <Content Include="Cars\All.aspx" />
     <Content Include="Cars\CarDetails.aspx" />
     <Content Include="Community\All.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\Assets\Images\x-sign-danger.png" />
     <Content Include="Content\Assets\Images\x-sign.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Errors\401.aspx" />
     <Content Include="Errors\500.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -383,6 +392,55 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditAccident.aspx.cs">
+      <DependentUpon>EditAccident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditAccident.aspx.designer.cs">
+      <DependentUpon>EditAccident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditCar.aspx.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditCar.aspx.designer.cs">
+      <DependentUpon>EditCar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditReservations.aspx.cs">
+      <DependentUpon>EditReservations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditReservations.aspx.designer.cs">
+      <DependentUpon>EditReservations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageAccidents.aspx.cs">
+      <DependentUpon>ManageAccidents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageAccidents.aspx.designer.cs">
+      <DependentUpon>ManageAccidents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageCars.aspx.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageCars.aspx.designer.cs">
+      <DependentUpon>ManageCars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageReservations.aspx.cs">
+      <DependentUpon>ManageReservations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageReservations.aspx.designer.cs">
+      <DependentUpon>ManageReservations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageUsers.aspx.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageUsers.aspx.designer.cs">
+      <DependentUpon>ManageUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -438,6 +496,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\401.aspx.cs">
+      <DependentUpon>401.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\401.aspx.designer.cs">
+      <DependentUpon>401.aspx</DependentUpon>
     </Compile>
     <Compile Include="Errors\500.aspx.cs">
       <DependentUpon>500.aspx</DependentUpon>
@@ -510,7 +575,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="Uploaded_Files\" />
   </ItemGroup>
