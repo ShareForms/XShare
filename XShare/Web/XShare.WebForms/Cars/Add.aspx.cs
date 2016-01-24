@@ -22,25 +22,29 @@
 
         protected void Btn_AddCar(object sender, EventArgs e)
         {
-            var carDescription = this.Description.Text;
-            var carFuelEconomy = double.Parse(this.FuelEconomy.Text);
-            var carPictureUrl = this.PictureUrl.Text;
-
-            CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
-
-            var carFeatures = new List<string>();
-
-            foreach (ListItem item in this.Features.Items)
+            if (Page.IsValid)
             {
-                if (item.Selected)
+
+                var carDescription = this.Description.Text;
+                var carFuelEconomy = double.Parse(this.FuelEconomy.Text);
+                var carPictureUrl = this.PictureUrl.Text;
+
+                CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
+
+                var carFeatures = new List<string>();
+
+                foreach (ListItem item in this.Features.Items)
                 {
-                    carFeatures.Add(item.Value.ToString());
+                    if (item.Selected)
+                    {
+                        carFeatures.Add(item.Value.ToString());
+                    }
                 }
+
+                this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
+
+                this.Response.Redirect("~/Cars/All");
             }
-
-            this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
-
-            this.Response.Redirect("~/Cars/All");
         }
 
         public IQueryable<string> GetFeatures()
