@@ -58,22 +58,14 @@
                 CarType = carCarType
             };
 
-            var featuresToAdd = new HashSet<Feature>();
+            this.cars.Add(carToAdd);
+            this.cars.SaveChanges();
 
             foreach (var featureId in carFeaturesIds)
             {
                 var feature = this.features.GetById(featureId);
-                featuresToAdd.Add(feature);
+                feature.Cars.Add(carToAdd);
             }
-
-          
-
-            carToAdd.Features = featuresToAdd;
-
-            this.features.Dispose();
-
-            this.cars.Add(carToAdd);
-            this.cars.SaveChanges();
 
             return carToAdd;
         }

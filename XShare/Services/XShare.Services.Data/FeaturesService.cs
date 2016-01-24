@@ -1,5 +1,6 @@
 ﻿namespace XShare.Services.Data
 {
+    using System.Collections.Generic;
     using System.Linq;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
@@ -14,9 +15,9 @@
             this.features = features;
         }
 
-        public IQueryable<Feature> AllFeatures()
+        public IEnumerable<Feature> AllFeatures()
         {
-            return this.features.All();
+            return this.features.All().AsEnumerable();
         }
 
         public Feature GetById(int id)

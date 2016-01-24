@@ -47,7 +47,7 @@
             this.Response.Redirect("~/Cars/All");
         }
 
-        public IQueryable<Feature> GetFeatures()
+        public IEnumerable<Feature> GetFeatures()
         {
             return this.FeatureService.AllFeatures();
         }
