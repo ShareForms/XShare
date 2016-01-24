@@ -57,9 +57,9 @@
                 var userId = this.UserService.GetUserId(userName);
                 var carId = this.UserService.GetLastCarId(userName);
 
-                this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, carId, userId);
+                var addenAccident = this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, carId, userId);
 
-                this.Response.Redirect("~/");
+                this.Response.Redirect("~/Accident/Details.aspx?id=" + addenAccident.Id);
             }
         }
     }

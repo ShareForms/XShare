@@ -14,6 +14,12 @@
             this.accidents = accidents;
         }
 
+        public Accident AccidentById(int id)
+        {
+            object serachId = id;
+            return this.accidents.GetById(id);
+        }
+
         public Accident CreateAccident(string location, string picture, string description, int carId, string userId)
         {
             var accidentToAdd = new Accident
