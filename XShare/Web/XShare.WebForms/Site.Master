@@ -58,6 +58,7 @@
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <LoggedInTemplate>
                                 <li><a runat="server" href="~/Accident/Report">Report an Accident</a></li>
+                                <li><a runat="server" href="~/Community/All">Your Community</a></li>
                             </LoggedInTemplate>
                         </asp:LoginView>
                     </ul>
