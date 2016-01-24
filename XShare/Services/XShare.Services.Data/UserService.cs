@@ -25,6 +25,11 @@
                .Where(x => x.UserName == name);
         }
 
+        public IQueryable<User> GetAll()
+        {
+            return this.users.All();
+        }
+
         public int GetLastCarId(string name)
         {
             var reservationAsObject = this.users
