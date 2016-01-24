@@ -65,10 +65,16 @@ namespace XShare.WebForms
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
+
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.Page.User.IsInRole("admin"))
+            {
+               // this.MainContent.Visible = false;
+            }
 
         }
 

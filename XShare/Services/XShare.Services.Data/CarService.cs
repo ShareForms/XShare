@@ -67,6 +67,8 @@
                 feature.Cars.Add(carToAdd);
             }
 
+            this.features.SaveChanges();
+
             return carToAdd;
         }
 

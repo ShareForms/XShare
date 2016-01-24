@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="bs-component text-center">
+        <div class="bs-component text-center" runat="server" ID="TestSelect">
             <asp:DataPager ID="DataPagerAvailable" PagedControlID="ViewAvailableCars" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
                 <Fields>
                     <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
