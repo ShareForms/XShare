@@ -7,7 +7,7 @@
     public class Car
     {
         private ICollection<Rating> ratings;
-        private ICollection<Feature> features;
+        private ICollection<string> features;
         private ICollection<Accident> accidents;
         private ICollection<Reservation> reservations;
 
@@ -15,7 +15,7 @@
         {
             this.ratings = new HashSet<Rating>();
             this.accidents = new HashSet<Accident>();
-            this.features = new HashSet<Feature>();
+            this.features = new HashSet<string>();
             this.reservations = new HashSet<Reservation>();
         }
 
@@ -32,7 +32,7 @@
         [Required]
         public string PictureUrl { get; set; }
 
-        public ICollection<Feature> Features { get; set; }
+        public ICollection<string> Features { get; set; }
 
         public CarTypes CarType { get; set; }
 

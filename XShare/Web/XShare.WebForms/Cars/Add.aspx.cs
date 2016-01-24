@@ -31,10 +31,15 @@
 
                 CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
 
-                var carFeatures = new List<Feature>();
+                var carFeatures = new List<string>();
 
-                Feature a = new Feature { Description = "Air Condtion" };
-                carFeatures.Add(a);
+                foreach (ListItem item in this.Features.Items)
+                {
+                    if (item.Selected)
+                    {
+                        carFeatures.Add(item.Value.ToString());
+                    }
+                }
 
                 this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
 
