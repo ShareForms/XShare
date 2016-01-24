@@ -11,8 +11,7 @@
 
         Car CarById(int id);
 
-        Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType);
-
+        Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<Feature> carFeatures, CarTypes carCarType);
 
         IQueryable<Car> GetFreeCarsForTimeInterval(DateTime from, DateTime to);
 
