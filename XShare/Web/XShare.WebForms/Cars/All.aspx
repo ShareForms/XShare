@@ -60,19 +60,19 @@
                             <ItemTemplate runat="server">
                                 <tr>
                                     <td>
-                                        <asp:Image ImageUrl='<%# Item.PictureUrl %>' Width="50px" runat="server" />
+                                        <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.Description %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.Description %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.CarType %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.CarType %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:Label Text='<%# Item.FuelEconomy + " l/100 km" %>' runat="server" />
+                                        <asp:Label Text='<%#: Item.FuelEconomy + " l/100 km" %>' runat="server" />
                                     </td>
                                     <td>
-                                        <asp:HyperLink NavigateUrl='<%# string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>' runat="server"> Details
+                                        <asp:HyperLink NavigateUrl='<%#: string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>' runat="server"> Details
                                         </asp:HyperLink>
                                     </td>
                                 </tr>

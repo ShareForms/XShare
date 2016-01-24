@@ -44,13 +44,13 @@
                         <ItemTemplate runat="server">
                             <tr>
                                 <td>
-                                    <asp:Label Text='<%# Item.UserName %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.UserName %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:Label Text='<%# Item.Reservations.Count().ToString() %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.Reservations.Count().ToString() %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:Label Text='<%# Item.Accidents.Count().ToString() %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.Accidents.Count().ToString() %>' runat="server" />
                                 </td>
                             </tr>
                         </ItemTemplate>

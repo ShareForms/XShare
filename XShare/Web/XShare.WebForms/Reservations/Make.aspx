@@ -102,19 +102,19 @@
                         <ItemTemplate>
                             <tr>
                                 <td>
-                                    <asp:Image ImageUrl='<%# Item.PictureUrl %>' Width="50px" runat="server" />
+                                    <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
                                 </td>
                                 <td>
-                                    <asp:Label Text='<%# Item.Description %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.Description %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:Label Text='<%# Item.CarType %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.CarType %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:Label Text='<%# Item.FuelEconomy + " l/100 km" %>' runat="server" />
+                                    <asp:Label Text='<%#: Item.FuelEconomy + " l/100 km" %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:HyperLink NavigateUrl='<%# "Details/" + Item.Id %>' runat="server"> Details
+                                    <asp:HyperLink NavigateUrl='<%#: "Details/" + Item.Id %>' runat="server"> Details
                                     </asp:HyperLink>
                                 </td>
                                    <td>
@@ -122,7 +122,7 @@
                                         Text="Reserve" 
                                         CssClass="btn btn-sm btn-success" 
                                         OnClick="Btn_Reservation_OnClick"
-                                        CommandArgument="<%# Item.Id %>">
+                                        CommandArgument="<%#: Item.Id %>">
                                     </asp:Button>
                                 </td>
                             </tr>
