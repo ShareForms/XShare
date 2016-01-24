@@ -11,11 +11,13 @@
     {
         private readonly IRepository<Car> cars;
         private readonly IRepository<Rating> ratings;
+        private readonly IRepository<Feature> features;
 
-        public CarService(IRepository<Car> cars, IRepository<Rating> ratings)
+        public CarService(IRepository<Car> cars, IRepository<Rating> ratings, IRepository<Feature> features)
         {
             this.cars = cars;
             this.ratings = ratings;
+            this.features = features;
         }
 
         public void AddRating(int carId, int rating)
@@ -46,16 +48,29 @@
             return this.cars.All().Count();
         }
 
-        public Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, List<string> carFeatures, CarTypes carCarType)
+        public Car CreateCar(string carDescription, double carFuelEconomy, string carPictureUrl, ICollection<int> carFeaturesIds, CarTypes carCarType)
         {
             var carToAdd = new Car
             {
                 Description = carDescription,
                 FuelEconomy = carFuelEconomy,
                 PictureUrl = carPictureUrl,
-                Features = carFeatures,
                 CarType = carCarType
             };
+
+            var featuresToAdd = new HashSet<Feature>();
+
+            foreach (var featureId in carFeaturesIds)
+            {
+                var feature = this.features.GetById(featureId);
+                featuresToAdd.Add(feature);
+            }
+
+          
+
+            carToAdd.Features = featuresToAdd;
+
+            this.features.Dispose();
 
             this.cars.Add(carToAdd);
             this.cars.SaveChanges();

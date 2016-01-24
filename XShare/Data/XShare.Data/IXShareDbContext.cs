@@ -16,6 +16,8 @@
 
         IDbSet<Accident> Accidents { get; set; }
 
+        IDbSet<Feature> Features { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

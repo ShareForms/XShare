@@ -15,9 +15,12 @@
         [Inject]
         public ICarService CarService { get; set; }
 
+        [Inject]
+        public IFeaturesService FeatureService { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void Btn_AddCar(object sender, EventArgs e)
@@ -28,13 +31,14 @@
 
             CarTypes carCarType = (CarTypes)Enum.Parse(typeof(CarTypes), this.CarType.SelectedValue);
 
-            var carFeatures = new List<string>();
+            var carFeatures = new HashSet<int>();
 
             foreach (ListItem item in this.Features.Items)
             {
                 if (item.Selected)
                 {
-                    carFeatures.Add(item.Value.ToString());
+                    var fetureId = int.Parse(item.Value);
+                    carFeatures.Add(fetureId);
                 }
             }
 
@@ -43,16 +47,16 @@
             this.Response.Redirect("~/Cars/All");
         }
 
-        public IQueryable<string> GetFeatures()
+        public IQueryable<Feature> GetFeatures()
         {
-            return (new[] { "Automatic Transmition", "Cabrio", "Cruise control", "Navigation system", "Xenon headlights", "Ventilated Seats" }).AsQueryable();
+            return this.FeatureService.AllFeatures();
         }
 
         public IQueryable<string> GetCarType()
         {
             var carTypes = Enum.GetValues(typeof(CarTypes)).AsQueryable()
                 .Cast<CarTypes>()
-                .Select(x => x.ToString()); 
+                .Select(x => x.ToString());
             return carTypes;
         }
     }
