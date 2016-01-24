@@ -16,9 +16,17 @@
         [Inject]
         public ICarService CarService { get; set; }
 
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                this.Response.Redirect("~/Account/Login");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public Car ViewCarDetails_GetItem([QueryString("id")]int? carID)

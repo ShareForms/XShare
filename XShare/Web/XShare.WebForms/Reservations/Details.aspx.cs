@@ -17,6 +17,14 @@ namespace XShare.WebForms.Reservations
         [Inject]
         public IReservationService ReservationService { get; set; }
 
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                this.Response.Redirect("~/Account/Login");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
