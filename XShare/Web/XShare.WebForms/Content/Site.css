@@ -75,3 +75,7 @@ img {
 .table > tbody > tr > td, .table > tbody > tr > th{
      vertical-align: middle;
 }
+
+footer {
+    margin-top: 0 !Important;
+}
