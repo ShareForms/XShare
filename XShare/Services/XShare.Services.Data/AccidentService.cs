@@ -1,6 +1,7 @@
 ﻿namespace XShare.Services.Data
 {
     using System;
+    using System.Linq;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
     using XShare.Services.Data.Contracts;
@@ -18,6 +19,11 @@
         {
             object serachId = id;
             return this.accidents.GetById(id);
+        }
+
+        public IQueryable<Accident> AllAccident()
+        {
+            return this.accidents.All();
         }
 
         public Accident CreateAccident(string location, string picture, string description, int carId, string userId)

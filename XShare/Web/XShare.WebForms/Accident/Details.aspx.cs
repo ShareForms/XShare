@@ -1,6 +1,7 @@
 ﻿namespace XShare.WebForms.Accident
 {
     using System;
+    using System.Linq;
     using System.Web.ModelBinding;
     using Ninject;
     using Services.Data.Contracts;
@@ -23,6 +24,26 @@
 
         }
 
+        protected void ShowGridWithAccidents(object sender, EventArgs e)
+        {
+            if (this.ViewAllAccidentsList.Visible)
+            {
+                this.ViewAllAccidentsList.Visible = false;
+                this.InvokeAccidentsList.Text = "Show Accidents";
+
+            }
+            else
+            {
+                this.ViewAllAccidentsList.Visible = true;
+                this.InvokeAccidentsList.Text = "Hide Accidents";
+            }
+        }
+
+        protected void BackHomeClik(object sender, EventArgs e)
+        {
+            Response.Redirect("~/");
+        }
+
         public XShare.Data.Models.Accident ViewAccidentDetails_GetItem([QueryString("id")]int? accidentId)
         {
             if (accidentId == null)
@@ -32,6 +53,12 @@
 
             var accidentIdToDisplay = this.AccidentService.AccidentById((int)accidentId);
             return accidentIdToDisplay;
+        }
+
+        public IQueryable<XShare.Data.Models.Accident> GridViewAll_GetAccidents()
+        {
+            var accidentsToDisplay = this.AccidentService.AllAccident();
+            return accidentsToDisplay;
         }
     }
 }
