@@ -1,12 +1,7 @@
 ﻿namespace XShare.WebForms.Accident
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.ModelBinding;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
     using Ninject;
     using Services.Data.Contracts;
 
@@ -28,7 +23,7 @@
 
         }
 
-        public Accident ViewAccidentDetails_GetItem([QueryString("id")]int? accidentId)
+        public XShare.Data.Models.Accident ViewAccidentDetails_GetItem([QueryString("id")]int? accidentId)
         {
             if (accidentId == null)
             {

@@ -13,12 +13,12 @@ namespace XShare.WebForms.Accident {
     public partial class Details {
         
         /// <summary>
-        /// CrashImage control.
+        /// ViewAccidentDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CrashImage;
+        protected global::System.Web.UI.WebControls.FormView ViewAccidentDetails;
     }
 }
