@@ -68,9 +68,9 @@
                                 <ContentTemplate>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li class="dropdown" runat="server" id="AdminDropdownMenu">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span>  <span class="caret"></a>
-                                            <ul class="dropdown-menu" >
-                                                <li> <a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span><span class="caret"></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="/Admin/ManageCars">Manage cars <span class="glyphicon glyphicon-usd pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
@@ -111,6 +111,14 @@
             <hr />
             <footer>
                 <p class="text-center">&copy; <%: DateTime.Now.Year %> - Teletik Academy Teamwork</p>
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" SkipLinkText=""
+                        EnableViewState="False" IncludeStyleBlock="True" Orientation="Horizontal"
+                        DataSourceID="SiteMapDataSource" StaticDisplayLevels="2">
+                    </asp:Menu>
+                    <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" />
+                </div>
+                <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
             </footer>
         </div>
     </form>
