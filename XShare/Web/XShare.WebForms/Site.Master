@@ -118,6 +118,16 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+            <div>
+                <asp:Menu ID="NavigationMenu" runat="server" SkipLinkText=""
+                    DataSourceID="SiteMapDataSource"
+                    StaticDisplayLevels="2"
+                    RenderingMode="Default"
+                    staticEnableDefaultPopOutImage= False
+                    DynamicHorizontalOffset="10">
+                </asp:Menu>
+            </div>
+            <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
             <footer>
                 <p class="text-center">&copy; <%: DateTime.Now.Year %> - Teletik Academy Teamwork</p>
             </footer>
