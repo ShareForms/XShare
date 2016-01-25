@@ -13,6 +13,7 @@ namespace XShare.WebForms.Cars
     using Data.Models;
     using Ninject;
     using XShare.Services.Data.Contracts;
+    using XShare.WebForms.Controls.Notificator;
 
     public partial class Add : System.Web.UI.Page
     {
@@ -48,6 +49,9 @@ namespace XShare.WebForms.Cars
                 }
 
                 this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
+
+                Notificator.AddSuccessMessage("Car added");
+                Notificator.ShowAfterRedirect = true;
 
                 this.Response.Redirect("~/Cars/All");
             }

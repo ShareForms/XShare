@@ -22,6 +22,15 @@ namespace XShare.WebForms {
         protected global::System.Web.UI.WebControls.LoginView LoginView;
         
         /// <summary>
+        /// Notificator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::XShare.WebForms.Controls.Notificator.Notificator Notificator;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

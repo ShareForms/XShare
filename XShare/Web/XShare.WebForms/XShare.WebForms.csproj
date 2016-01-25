@@ -210,6 +210,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\Notificator\Notificator.ascx" />
+    <Content Include="Controls\Notificator\Scripts\Notificator.js" />
     <Content Include="Controls\YoutubeIfreme\YouTubeIframe.ascx" />
     <Content Include="Errors\401.aspx" />
     <Content Include="Errors\500.aspx" />
@@ -491,6 +493,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Notificator\Notificator.ascx.cs">
+      <DependentUpon>Notificator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Notificator\Notificator.ascx.designer.cs">
+      <DependentUpon>Notificator.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\YoutubeIfreme\YouTubeIframe.ascx.cs">
       <DependentUpon>YouTubeIframe.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -584,6 +592,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controls\Notificator\Images\" />
+    <Folder Include="Controls\Notificator\Styles\" />
     <Folder Include="Uploaded_Files\" />
   </ItemGroup>
   <ItemGroup>

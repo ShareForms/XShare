@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="XShare.WebForms.SiteMaster" %>
 
+<%@ Register Src="~/Controls/Notificator/Notificator.ascx" TagPrefix="xcontrol" TagName="Notificator" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -68,9 +70,9 @@
                                 <ContentTemplate>
                                     <ul class="nav navbar-nav navbar-right">
                                         <li class="dropdown" runat="server" id="AdminDropdownMenu">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span>  <span class="caret"></a>
-                                            <ul class="dropdown-menu" >
-                                                <li> <a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span><span class="caret"></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="/Admin/ManageCars">Manage cars <span class="glyphicon glyphicon-usd pull-right left-margin"></span></a></li>
                                                 <li class="divider"></li>
@@ -106,6 +108,8 @@
             </div>
         </div>
         <div class="container body-content">
+            <br/>
+            <xcontrol:Notificator runat="server" ID="Notificator" />
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
