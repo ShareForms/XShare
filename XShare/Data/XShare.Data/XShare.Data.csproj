@@ -57,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSeed\AdminSeeder.cs" />
+    <Compile Include="DataSeed\FeaturesSeeder.cs" />
+    <Compile Include="DataSeed\IDataSeeder.cs" />
     <Compile Include="IXShareDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

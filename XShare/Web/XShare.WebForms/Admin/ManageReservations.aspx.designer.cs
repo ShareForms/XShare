@@ -7,81 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XShare.WebForms.Reservations {
+namespace XShare.WebForms.Admin {
     
     
-    public partial class Make {
+    public partial class ManageReservations {
         
         /// <summary>
-        /// ErrorMessage control.
+        /// LB_ClearFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        protected global::System.Web.UI.WebControls.LinkButton LB_ClearFilters;
         
         /// <summary>
-        /// FromTime control.
+        /// TB_FiltreFromLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FromTime;
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreFromLocation;
         
         /// <summary>
-        /// ToTime control.
+        /// TB_FiltreToLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ToTime;
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreToLocation;
         
         /// <summary>
-        /// From control.
+        /// TB_FiltreByCarModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox From;
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreByCarModel;
         
         /// <summary>
-        /// To control.
+        /// TB_FiltreByUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox To;
+        protected global::System.Web.UI.WebControls.TextBox TB_FiltreByUser;
         
         /// <summary>
-        /// ViewAvailableCars control.
+        /// LB_FilterFromLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ViewAvailableCars;
+        protected global::System.Web.UI.WebControls.LinkButton LB_FilterFromLocation;
         
         /// <summary>
-        /// TestSelect control.
+        /// ViewLastestReservations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TestSelect;
+        protected global::System.Web.UI.WebControls.ListView ViewLastestReservations;
         
         /// <summary>
-        /// DataPagerAvailable control.
+        /// PagerReservations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager DataPagerAvailable;
+        protected global::System.Web.UI.WebControls.DataPager PagerReservations;
     }
 }

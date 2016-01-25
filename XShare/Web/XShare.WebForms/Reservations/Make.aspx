@@ -114,7 +114,7 @@
                                     <asp:Label Text='<%#: Item.FuelEconomy + " l/100 km" %>' runat="server" />
                                 </td>
                                 <td>
-                                    <asp:HyperLink NavigateUrl='<%#: "Details/" + Item.Id %>' runat="server"> Details
+                                    <asp:HyperLink NavigateUrl='<%#: "/Cars/CarDetails?id=" + Item.Id %>' runat="server"> Details
                                     </asp:HyperLink>
                                 </td>
                                    <td>
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="bs-component text-center">
+        <div class="bs-component text-center" runat="server" ID="TestSelect">
             <asp:DataPager ID="DataPagerAvailable" PagedControlID="ViewAvailableCars" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
                 <Fields>
                     <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"

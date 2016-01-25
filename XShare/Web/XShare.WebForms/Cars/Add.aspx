@@ -16,7 +16,7 @@
                                 <asp:TextBox ID="Description" runat="server" CssClass="form-control"></asp:TextBox>
                                 <asp:RequiredFieldValidator ErrorMessage="Description is requared" ControlToValidate="Description" runat="server" ForeColor="Red" />
                                 <asp:RegularExpressionValidator ErrorMessage="Description is maximum 200 characters long" ControlToValidate="Description" runat="server" ForeColor="Red"
-                                    ValidationExpression="^[\s\S]{1,200}$"/>
+                                    ValidationExpression="^[\s\S]{1,200}$" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -42,16 +42,19 @@
                         <div class="form-group text-left">
                             <label for="Features" class="col-md-3 control-label">Features</label>
                             <div class="col-md-9">
-                                <div cssclass="form-control">
+                                <div>
                                     <asp:CheckBoxList ID="Features" runat="server" SelectMethod="GetFeatures"
                                         RepeatColumns="1"
+                                        ItemType="XShare.Data.Models.Feature"
+                                        DataTextField="Value"
+                                        DataValueField="Id"
                                         RepeatDirection="Vertical"
                                         RepeatLayout="Flow"
                                         TextAlign="Right"
                                         EnableTheming="True">
                                     </asp:CheckBoxList>
                                 </div>
-                            </div>
+                        </div>
                         </div>
                         <div class="form-group">
                             <label for="CarType" class="col-md-3 control-label">CarType</label>

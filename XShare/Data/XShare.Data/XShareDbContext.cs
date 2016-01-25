@@ -9,7 +9,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 
-    public class XShareDbContext : IdentityDbContext<User>, IXShareDbContext 
+    public class XShareDbContext : IdentityDbContext<User>, IXShareDbContext
     {
         public XShareDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -23,6 +23,8 @@
         public virtual IDbSet<Reservation> Reservations { get; set; }
 
         public virtual IDbSet<Accident> Accidents { get; set; }
+
+        public virtual IDbSet<Feature> Features { get; set; }
 
         public static XShareDbContext Create()
         {

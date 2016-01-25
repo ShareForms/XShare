@@ -62,7 +62,31 @@
                             </LoggedInTemplate>
                         </asp:LoginView>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                    <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView">
+                        <RoleGroups>
+                            <asp:RoleGroup Roles="admin">
+                                <ContentTemplate>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li class="dropdown" runat="server" id="AdminDropdownMenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download" aria-expanded="false">Admin area <span class="glyphicon glyphicon-cog pull-left right-margin"></span>  <span class="caret"></a>
+                                            <ul class="dropdown-menu" >
+                                                <li> <a href="/Admin/ManageUsers">Manage users <span class="glyphicon glyphicon-user pull-right left-margin"></span></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="/Admin/ManageCars">Manage cars <span class="glyphicon glyphicon-usd pull-right left-margin"></span></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="/Admin/ManageReservations">Manage Reservations <span class="glyphicon glyphicon-ok pull-right left-margin"></span></a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="/Admin/ManageAccidents">Manage Accidents <span class="glyphicon glyphicon-warning-sign pull-right left-margin"></span></a></li>
+                                            </ul>
+                                            <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                            <li>
+                                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                            </li>
+                                        </li>
+                                    </ul>
+                                </ContentTemplate>
+                            </asp:RoleGroup>
+                        </RoleGroups>
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
@@ -73,7 +97,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" ID="AdminDropdown" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>
