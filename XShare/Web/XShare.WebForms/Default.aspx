@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="XShare.WebForms._Default" %>
 
+<%@ Register Src="~/Controls/YoutubeIfreme/YouTubeIframe.ascx" TagPrefix="xcontrol" TagName="YouTubeIframe" %>
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
@@ -10,9 +13,9 @@
     <div class="jumbotron">
         <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
-                <div class="text-center">
+                <div class="text-center" style="opacity: 0.35;">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" name="myIframe" id="myIframe" runat="server" frameborder="0" style="opacity: 0.35;"></iframe>
+                        <xcontrol:YouTubeIframe runat="server" id="YouTubeIframe" VideoId="RQ0FzwaqLow" Loop="true" Volume="0"/>
                     </div>
                 </div>
             </div>

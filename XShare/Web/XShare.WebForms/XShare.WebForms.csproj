@@ -210,6 +210,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\YoutubeIfreme\YouTubeIframe.ascx" />
     <Content Include="Errors\401.aspx" />
     <Content Include="Errors\500.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -489,6 +490,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\YoutubeIfreme\YouTubeIframe.ascx.cs">
+      <DependentUpon>YouTubeIframe.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\YoutubeIfreme\YouTubeIframe.ascx.designer.cs">
+      <DependentUpon>YouTubeIframe.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
