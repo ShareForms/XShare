@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title=""  description="">
+      <siteMapNode url="~/About" title="About"  description="About Page" />     
+
+      <siteMapNode title="Cars" description="Cars Section">
+        <siteMapNode title="Add new Car" description="Add new Car Page" url="~/Cars/Add"/>
+        <siteMapNode title="All Cars" description="All Cars Page" url="~/Cars/All"/>
+      </siteMapNode>
+
+      <siteMapNode title="Reservations" description="Reservations Section">
+        <siteMapNode title="Latest Reservations" description="Latest Reservations Page" url="~/Reservations/Latest"/>
+        <siteMapNode title="Make a Reservation" description="Make a Reservation Page" url="~/Reservations/Make"/>
+      </siteMapNode>
+      
+      <siteMapNode title="Accident" description="Accident Section">
+        <siteMapNode title="Report an Accident" description="Report an Accident Page" url="~/Accident/Report"/>
+      </siteMapNode>
+
+      <siteMapNode title="Community" description="Community Section">
+        <siteMapNode title="Community" description="Community Page" url="~/Community/All"/>
+      </siteMapNode>     
+      
+    </siteMapNode>
+</siteMap>
