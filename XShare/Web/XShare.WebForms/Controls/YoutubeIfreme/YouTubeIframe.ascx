@@ -22,7 +22,8 @@
                 'controls': 0,
                 'rel': 0,
                 'showinfo': 0,
-                'modestbranding': 1
+                'modestbranding': 1,
+                'iv_load_policy': 3
             },
             events: {
                 'onReady': onPlayerReady
@@ -39,26 +40,28 @@
     var videoId;
     var videoVolume;
     var videoLoop;
+    var videoQuality;
 
-    loadIframe = function (newId, newVolume, loop) {
+    loadIframe = function (newId, newVolume, loop, vQuality) {
 
         if (newId != undefined) {
             videoId = newId;
             videoVolume = newVolume | 0;
             videoLoop = loop === 'true' ? true : false;
+            videoQuality = vQuality || 'default';
         }
 
         if (!playerReady) {
             setTimeout(loadIframe, 100);
         } else {
-
+            
             player.loadPlaylist({
                 playlist: [videoId],
                 index: 0,
                 startSeconds: 0,
-                suggestedQuality: 'large'
+                suggestedQuality: videoQuality
             });
-
+           
             player.setLoop(videoLoop);
             player.setVolume(videoVolume);
             player.playVideo();
