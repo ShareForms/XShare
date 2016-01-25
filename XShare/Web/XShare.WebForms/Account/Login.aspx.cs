@@ -4,6 +4,7 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
+using XShare.WebForms.Controls.Notificator;
 
 namespace XShare.WebForms.Account
 {
@@ -18,6 +19,7 @@ namespace XShare.WebForms.Account
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
             {
+                Notificator.AddErrorMessage("You are trying to access restricted  area, please login!");
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
         }
@@ -43,7 +45,7 @@ namespace XShare.WebForms.Account
                         Response.Redirect("/Account/Lockout");
                         break;
                     case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
+                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}",
                                                         Request.QueryString["ReturnUrl"],
                                                         RememberMe.Checked),
                                           true);

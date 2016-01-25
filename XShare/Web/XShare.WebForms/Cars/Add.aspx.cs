@@ -32,7 +32,6 @@ namespace XShare.WebForms.Cars
         {
             if (Page.IsValid)
             {
-
                 var carDescription = this.Description.Text;
                 var carFuelEconomy = double.Parse(this.FuelEconomy.Text);
                 var carPictureUrl = this.PictureUrl.Text;
@@ -50,18 +49,8 @@ namespace XShare.WebForms.Cars
 
                 this.CarService.CreateCar(carDescription, carFuelEconomy, carPictureUrl, carFeatures, carCarType);
 
-                Notificator.AddSuccessMessage("Car added");
+                Notificator.AddSuccessMessage($"Car '{carDescription}' added");
                 Notificator.ShowAfterRedirect = true;
-
-                Notificator.AddInfoMessage("Car info");
-                Notificator.ShowAfterRedirect = true;
-
-                Notificator.AddErrorMessage("Car error");
-                Notificator.ShowAfterRedirect = true;
-
-                Notificator.AddWarningMessage("Car warning");
-                Notificator.ShowAfterRedirect = true;
-
 
                 this.Response.Redirect("~/Cars/All");
             }
