@@ -38,6 +38,7 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+               <%-- <asp:ScriptReference Name="Notificator.js"  Path="~/Scripts/Notificator.js"/>--%>
             </Scripts>
         </asp:ScriptManager>
 
@@ -108,14 +109,19 @@
             </div>
         </div>
         <div class="container body-content">
-            <br/>
-            <xcontrol:Notificator runat="server" ID="Notificator" />
+            <br />
+            <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                    <xcontrol:Notificator runat="server" ID="Notificator" />
+                </div>
+            </div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
                 <p class="text-center">&copy; <%: DateTime.Now.Year %> - Teletik Academy Teamwork</p>
             </footer>
+           <%-- <script src="/Controls/Notificator/Scripts/Notificator.js"></script>--%>
         </div>
     </form>
 </body>

@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace XShare.WebForms.Controls.Notificator
+﻿namespace XShare.WebForms.Controls.Notificator
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Web;
+    using System.Web.UI;
     using System.Web.UI.HtmlControls;
+    using System.Web.UI.WebControls;
 
     public enum MessageType
     {
         Success,
         Info,
         Warning,
-        Error
+        Danger
     }
 
     public class NotificationMessage
@@ -132,7 +132,7 @@ namespace XShare.WebForms.Controls.Notificator
             AddMessage(new NotificationMessage()
             {
                 Text = msg,
-                Type = MessageType.Error,
+                Type = MessageType.Danger,
                 AutoHide = false
             });
         }
@@ -158,7 +158,9 @@ namespace XShare.WebForms.Controls.Notificator
                 foreach (var msg in NotificationMessages)
                 {
                     Panel msgPanel = new Panel();
-                    msgPanel.CssClass = "PanelNotificationBox Panel text-center alert alert-dismissible alert-" + msg.Type.ToString().ToLower();
+                    msgPanel.CssClass =
+                        "notificator flyover flyover-centered alert alert-" + msg.Type.ToString().ToLower()
+                        + " position-top-" + (index * 10).ToString();
                     if (msg.AutoHide)
                     {
                         msgPanel.CssClass += " AutoHide";
@@ -173,23 +175,17 @@ namespace XShare.WebForms.Controls.Notificator
                     dismissBtn.TagName = "button";
                     dismissBtn.InnerHtml = "×";
 
+                    HtmlGenericControl title = new HtmlGenericControl();
+                    title.TagName = "h4";
+                    title.InnerText = msg.Type.ToString();
+
                     HtmlGenericControl paragraph = new HtmlGenericControl();
-                    paragraph.TagName = "h2";
+                    paragraph.TagName = "p";
                     paragraph.InnerText = msg.Text;
 
-
-
-                    //Button dismissBtn = new Button();
-                    //dismissBtn.CssClass = "close";
-                    //dismissBtn.Attributes["data-dismiss"] = "alert";
-                    //dismissBtn.Attributes["type"] = "button";
-                    //dismissBtn.Text = "&close;";
-
-                    //Literal msgLiteral = new Literal();
-                    //msgLiteral.Mode = LiteralMode.Encode;
-                    //msgLiteral.Text = msg.Text;
-
+                    msgPanel.Controls.Add(title);
                     msgPanel.Controls.Add(dismissBtn);
+                    msgPanel.Controls.Add(title);
                     msgPanel.Controls.Add(paragraph);
 
                     this.Controls.Add(msgPanel);
@@ -208,32 +204,27 @@ namespace XShare.WebForms.Controls.Notificator
         {
             ClientScriptManager cs = Page.ClientScript;
 
-            //// Include the jQuery library (if not already included)
-            //string jqueryURL = this.TemplateSourceDirectory +
-            //    "/Scripts/jquery-1.3.2.js";
-            //if (!cs.IsStartupScriptRegistered(jqueryURL))
-            //{
-            //    cs.RegisterClientScriptInclude(jqueryURL, jqueryURL);
-            //}
-
-            // Include the ErrorSuccessNotifier.js library (if not already included)
             string notifierScriptURL = this.TemplateSourceDirectory +
                 "/Scripts/Notificator.js";
-            if (!cs.IsStartupScriptRegistered(notifierScriptURL))
+
+            if (!cs.IsClientScriptIncludeRegistered(notifierScriptURL))
             {
-                cs.RegisterClientScriptInclude(notifierScriptURL, notifierScriptURL);
+                StringBuilder script = new StringBuilder();
+                script.Append($"<script src=\"{notifierScriptURL}\"></script>");
+                cs.RegisterStartupScript(this.GetType(), notifierScriptURL, script.ToString());
             }
 
-            //// Include the ErrorSuccessNotifier.css stylesheet (if not already included)
-            //string cssRelativeURL = this.TemplateSourceDirectory +
-            //    "/Styles/ErrorSuccessNotifier.css";
-            //if (!cs.IsClientScriptBlockRegistered(cssRelativeURL))
-            //{
-            //    string cssLinkCode = string.Format(
-            //        @"<link href='{0}' rel='stylesheet' type='text/css' />",
-            //        cssRelativeURL);
-            //    cs.RegisterClientScriptBlock(this.GetType(), cssRelativeURL, cssLinkCode);
-            //}
+
+            // Include the ErrorSuccessNotifier.css stylesheet (if not already included)
+            string cssRelativeURL = this.TemplateSourceDirectory +
+                "/Styles/Notificator.css";
+            if (!cs.IsClientScriptBlockRegistered(cssRelativeURL))
+            {
+                string cssLinkCode = string.Format(
+                    @"<link href='{0}' rel='stylesheet' type='text/css' />",
+                    cssRelativeURL);
+                cs.RegisterClientScriptBlock(this.GetType(), cssRelativeURL, cssLinkCode);
+            }
         }
     }
 }

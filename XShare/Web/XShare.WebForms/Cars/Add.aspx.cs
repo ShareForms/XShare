@@ -53,6 +53,16 @@ namespace XShare.WebForms.Cars
                 Notificator.AddSuccessMessage("Car added");
                 Notificator.ShowAfterRedirect = true;
 
+                Notificator.AddInfoMessage("Car info");
+                Notificator.ShowAfterRedirect = true;
+
+                Notificator.AddErrorMessage("Car error");
+                Notificator.ShowAfterRedirect = true;
+
+                Notificator.AddWarningMessage("Car warning");
+                Notificator.ShowAfterRedirect = true;
+
+
                 this.Response.Redirect("~/Cars/All");
             }
         }

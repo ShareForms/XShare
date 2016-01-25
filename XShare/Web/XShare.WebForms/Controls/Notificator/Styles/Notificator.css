@@ -1,0 +1,65 @@
+﻿.flyover {
+    left: 150%;
+overflow: hidden;
+position: fixed;
+width: 50%;
+    -ms-opacity: 0.92;
+    opacity: 0.92;
+z-index: 1050;
+    -webkit-transition: left 1s ease-out 0s;
+    -moz-transition: left 1s ease-out 0s;
+    -ms-transition: left 1s ease-out 0s;
+    -o-transition: left 1s ease-out 0s;
+    transition: left 1s ease-out 0s;
+top: 10%;
+}
+
+.flyover-centered {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.flyover.in 
+{
+left: 50%;
+}
+
+.flyover-bottom {
+   bottom: 10px;
+}
+
+.position-top-10 {
+    top: 12%;
+}
+
+.position-top-20 {
+    top: 24%;
+}
+
+.position-top-30 {
+    top: 36%;
+}
+
+.position-top-40 {
+    top: 48%;
+}
+
+.position-top-50 {
+    top: 60%;
+}
+
+.position-top-60 {
+    top: 72%;
+}
+
+.position-top-70 {
+    top: 84%;
+}
+
+.position-top-80 {
+    top: 96%;
+}
+

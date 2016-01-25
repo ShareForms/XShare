@@ -1,9 +1,9 @@
 ﻿$(document).ready(function () {
-    $('.PanelNotificationBox').css({ opacity: 0 });
-    $('.PanelNotificationBox').fadeTo("slow", 1.0);
+    $('.notificator').toggleClass('in');
     setTimeout(function () {
-        $('.AutoHide').fadeOut('slow', function () {
+        $('.AutoHide').toggleClass('in');
+        setTimeout(function() {
             $('.AutoHide').remove();
-        });
-    }, 2000);
+        }, 1500);
+    }, 5000);
 });
