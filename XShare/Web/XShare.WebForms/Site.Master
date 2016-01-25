@@ -114,8 +114,8 @@
                     DataSourceID="SiteMapDataSource"
                     StaticDisplayLevels="2"
                     RenderingMode="Default"
-                    StaticMenuStyle-CssClass="StaticMenuStyle"
-                    StaticMenuItemStyle-CssClass="StaticMenuItemStyle">
+                    staticEnableDefaultPopOutImage= False
+                    DynamicHorizontalOffset="10">
                 </asp:Menu>
             </div>
             <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
