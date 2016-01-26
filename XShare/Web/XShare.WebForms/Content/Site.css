@@ -79,3 +79,8 @@ img {
 footer {
     margin-top: 0 !Important;
 }
+
+.big-checkbox > input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+}

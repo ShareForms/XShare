@@ -64,7 +64,7 @@
             return this.users.GetById(userId);
         }
 
-        public IQueryable<User> GetFiltered(string id, string userName, string email, string phone)
+        public IQueryable<User> GetFiltered(string id, string userName, string email, string phone, string role)
         {
             var usersQuery = this.users.All();
 
@@ -86,6 +86,18 @@
             if (!string.IsNullOrEmpty(phone))
             {
                 usersQuery = usersQuery.Where(c => c.PhoneNumber.Contains(phone));
+            }
+
+            if (!string.IsNullOrEmpty(role))
+            {
+                if (role == "admin")
+                {
+                    usersQuery = usersQuery.Where(c => c.Roles.Any());
+                }
+                else
+                {
+                    usersQuery = usersQuery.Where(c => !c.Roles.Any());
+                }
             }
 
             return usersQuery;

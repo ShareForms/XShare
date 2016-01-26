@@ -19,7 +19,7 @@
 
         User GetById(string userId);
 
-        IQueryable<User> GetFiltered(string id, string userName, string email, string phone);
+        IQueryable<User> GetFiltered(string id, string userName, string email, string phone, string role);
 
         void DeleteById(string id);
     }

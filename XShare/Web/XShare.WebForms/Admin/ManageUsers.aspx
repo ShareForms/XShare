@@ -52,16 +52,29 @@
                                             ID="TB_FiltrePhoneNumber"
                                             placeholder="Filter phone number" />
                                     </th>
-
-                                    <th class="text-center" colspan="2">
-                                        <asp:LinkButton runat="server" Text="Filter" ID="LB_FilterFromLocation"
-                                            OnClick="OnFilterClick" CssClass="btn btn-success btn-sm full-width" />
-                                    </th>
-
                                     <th class="text-center" colspan="2">
                                         <asp:LinkButton runat="server" Text="Clear all filters" ID="LB_ClearFilters"
                                             OnClick="OnClearFIltersClick" CssClass="btn btn-danger btn-sm full-width" />
                                     </th>
+
+                                    <th class="text-center no-wrap" style="min-width: 130px">
+                                        <asp:DropDownList CssClass="form-control input-sm no-wrap full-width"
+                                            runat="server"
+                                            ID="DDL_FilterByRole">
+                                            <asp:ListItem Text="All users" Value="" />
+                                            <asp:ListItem Text="Admins" Value="admin" />
+                                            <asp:ListItem Text="Clients" Value="client" />
+
+                                        </asp:DropDownList>
+                                    </th>
+
+                                    <th class="text-center" style="min-width: 100px">
+                                        <asp:LinkButton runat="server" Text="Filter" ID="LB_FilterFromLocation"
+                                            OnClick="OnFilterClick" CssClass="btn btn-success btn-sm full-width" />
+                                    </th>
+
+
+
                                 </tr>
 
                                 <asp:ListView ID="ListViewAllUsers" runat="server"
@@ -82,7 +95,7 @@
                                                     CommandName="Sort"
                                                     CommandArgument="Id" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center no-wrap">
                                                 <asp:LinkButton Text="User name" runat="server"
                                                     ID="SortByUserName"
                                                     CommandName="Sort"
@@ -94,7 +107,7 @@
                                                     CommandName="Sort"
                                                     CommandArgument="Email" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center no-wrap">
                                                 <asp:LinkButton Text="Phone number"
                                                     runat="server"
                                                     ID="SortByPhoneNumber"
@@ -107,7 +120,7 @@
                                             <th class="text-center">
                                                 <asp:Label Text="Accidents" runat="server" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center no-wrap">
                                                 <asp:Label Text="Is admin" runat="server" />
                                             </th>
                                             <th class="text-center">
@@ -190,8 +203,9 @@
                                                     Text='<%#: Item.Accidents.Count() %>'
                                                     runat="server" />
                                             </td>
-                                            <td class="text-left">
+                                            <td class="text-center">
                                                 <asp:CheckBox runat="server"
+                                                    CssClass="big-checkbox "
                                                     ID="CbIsADmin"
                                                     Checked='<%# Item.Roles.Any() %>' />
 
@@ -205,7 +219,7 @@
                                                     CommandName="Update" />
                                                 <br />
                                                 <asp:LinkButton
-                                                    CssClass="btn btn-xs btn-info fill-width wrap"
+                                                    CssClass="btn btn-xs btn-info full-width wrap"
                                                     runat="server"
                                                     ID="linkbuttoncancel"
                                                     Text="Cancel"

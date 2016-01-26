@@ -171,7 +171,7 @@
                                         <td class="wrap">
                                             <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server" ID="LinkButtonUpdate" Text="Update" CommandName="Update" />
                                             <br />
-                                            <asp:LinkButton CssClass="btn btn-xs btn-info fill-width wrap" runat="server" ID="LinkButtonCancel" Text="Cancel" CommandName="Cancel" />
+                                            <asp:LinkButton CssClass="btn btn-xs btn-info full-width wrap" runat="server" ID="LinkButtonCancel" Text="Cancel" CommandName="Cancel" />
                                         </td>
                                     </EditItemTemplate>
                                     <EmptyDataTemplate>

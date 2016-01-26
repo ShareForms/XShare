@@ -68,8 +68,9 @@
             string user = this.TB_FiltreUserName.Text;
             string email = this.TB_FilterEmail.Text;
             string phone = this.TB_FiltrePhoneNumber.Text;
+            string role = this.DDL_FilterByRole.SelectedValue;
 
-            var usersQuery = this.UsersService.GetFiltered(id, user, email, phone);
+            var usersQuery = this.UsersService.GetFiltered(id, user, email, phone, role);
 
             if (sortByExpression != null)
             {
@@ -99,6 +100,7 @@
             this.TB_FiltreUserName.Text = null;
             this.TB_FilterEmail.Text = null;
             this.TB_FiltrePhoneNumber.Text = null;
+            this.DDL_FilterByRole.SelectedIndex = 0;
 
             this.ListViewAllUsers.DataBind();
         }

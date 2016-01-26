@@ -49,15 +49,6 @@ namespace XShare.WebForms.Admin {
         protected global::System.Web.UI.WebControls.TextBox TB_FiltrePhoneNumber;
         
         /// <summary>
-        /// LB_FilterFromLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LB_FilterFromLocation;
-        
-        /// <summary>
         /// LB_ClearFilters control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,24 @@ namespace XShare.WebForms.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LB_ClearFilters;
+        
+        /// <summary>
+        /// DDL_FilterByRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDL_FilterByRole;
+        
+        /// <summary>
+        /// LB_FilterFromLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LB_FilterFromLocation;
         
         /// <summary>
         /// ListViewAllUsers control.

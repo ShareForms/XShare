@@ -214,7 +214,7 @@
                                                 <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server"
                                                     ID="linkbuttonupdate" Text="update" CommandName="update" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-info fill-width wrap" runat="server"
+                                                <asp:LinkButton CssClass="btn btn-xs btn-info full-width wrap" runat="server"
                                                     ID="linkbuttoncancel" Text="cancel" CommandName="cancel" />
                                             </td>
                                         </tr>
