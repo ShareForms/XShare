@@ -19,5 +19,11 @@
         void AddRating(int carId, int rating);
 
         int CarCount();
+
+        IQueryable<Car> GetFiltered(string model, string typr, int? fuelEconomy);
+
+        void UpdateCar(Car carToUpdate);
+
+        void DeleteById(int id);
     }
 }

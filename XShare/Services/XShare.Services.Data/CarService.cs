@@ -78,5 +78,46 @@
                 .Where(c => c.Reservations.All(r => ((from < r.FromTime && to < r.ToTime)
                                                         || (from > r.ToTime && to > r.ToTime))));
         }
+
+        public IQueryable<Car> GetFiltered(string model, string type, int? fuelEconomy)
+        {
+            var carsQuery = this.cars.All();
+
+            if (!string.IsNullOrEmpty(model))
+            {
+                carsQuery = carsQuery.Where(c => c.Description.Contains(model));
+            }
+
+            if (fuelEconomy != null && fuelEconomy > 0)
+            {
+                carsQuery = carsQuery.Where(c => ((fuelEconomy - 1) <= c.FuelEconomy) && (c.FuelEconomy <= fuelEconomy + 1));
+            }
+
+            if (!string.IsNullOrEmpty(type))
+            {
+                carsQuery = carsQuery.Where(c => c.CarType.ToString() == type);
+            }
+
+            return carsQuery;
+        }
+
+        public void UpdateCar(Car carToUpdate)
+        {
+            this.cars.Update(carToUpdate);
+
+            this.cars.SaveChanges();
+        }
+
+        public void DeleteById(int id)
+        {
+            Car itemToDelet = this.cars.GetById(id);
+
+            if (itemToDelet != null)
+            {
+                this.cars.Delete(itemToDelet);
+
+                this.cars.SaveChanges();
+            }
+        }
     }
 }
