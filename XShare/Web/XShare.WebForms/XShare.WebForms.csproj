@@ -193,9 +193,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Admin\EditAccident.aspx" />
-    <Content Include="Admin\EditCar.aspx" />
-    <Content Include="Admin\EditReservations.aspx" />
     <Content Include="Admin\ManageAccidents.aspx" />
     <Content Include="Admin\ManageCars.aspx" />
     <Content Include="Admin\ManageReservations.aspx" />
@@ -211,6 +208,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Controls\Confirmator\Confirmator.ascx" />
+    <Content Include="Controls\Confirmator\Scripts\Confirmator.js" />
+    <Content Include="Controls\Confirmator\Styles\Confirmator.css" />
     <Content Include="Controls\Notificator\Notificator.ascx" />
     <Content Include="Controls\Notificator\Scripts\Notificator.js" />
     <Content Include="Controls\Notificator\Styles\Notificator.css" />
@@ -233,6 +233,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\myscripts.js" />
     <Content Include="Scripts\Notificator.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -406,27 +407,6 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EditAccident.aspx.cs">
-      <DependentUpon>EditAccident.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EditAccident.aspx.designer.cs">
-      <DependentUpon>EditAccident.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\EditCar.aspx.cs">
-      <DependentUpon>EditCar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EditCar.aspx.designer.cs">
-      <DependentUpon>EditCar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\EditReservations.aspx.cs">
-      <DependentUpon>EditReservations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\EditReservations.aspx.designer.cs">
-      <DependentUpon>EditReservations.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\ManageAccidents.aspx.cs">
       <DependentUpon>ManageAccidents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -503,6 +483,13 @@
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Confirmator\Confirmator.ascx.cs">
+      <DependentUpon>Confirmator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Confirmator\Confirmator.ascx.designer.cs">
+      <DependentUpon>Confirmator.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\Notificator\Notificator.ascx.cs">
       <DependentUpon>Notificator.ascx</DependentUpon>

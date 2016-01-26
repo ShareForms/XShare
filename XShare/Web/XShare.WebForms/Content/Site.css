@@ -72,8 +72,8 @@ img {
     white-space: normal;
 }
 
-.table > tbody > tr > td, .table > tbody > tr > th{
-     vertical-align: middle;
+.table > tbody > tr > td, .table > tbody > tr > th {
+    vertical-align: middle;
 }
 
 footer {

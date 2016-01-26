@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Manage cars" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCars.aspx.cs" Inherits="XShare.WebForms.Admin.ManageCars" %>
 
+<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="xcontrols" TagName="Confirmator" %>
+
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
@@ -8,6 +11,28 @@
                 <h1><%: Title %></h1>
             </div>
 
+  <%--          <div class="modal fade" tabindex="-1" id="confirmator" role="dialog">
+                <div class="modal-dialog">
+                    <div class="alert" id="confirmator-body">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="confirmator-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="confirmator-text">One fine body&hellip;</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="btn-confirm">Do it!</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->--%>
+
+            <xcontrols:Confirmator runat="server" ID="Confirmator" />
 
             <br />
             <div class="row text-center">
@@ -140,8 +165,19 @@
                                                 <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server"
                                                     ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server"
-                                                    ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />
+                                                <asp:LinkButton
+                                                    CssClass="btn btn-xs btn-danger full-width wrap"
+                                                    type="button"
+                                                    data-toggle="modal" 
+                                                    ID="ButtonDelete"
+                                                    data-target="#confirmator"
+                                                    data-action="Delete"
+                                                    runat="server"
+                                                    Text="Delete"
+                                                    CommandName="Delete"
+                                                    OnClientClick="return xconfirm(this, 'x-title', 'x-message', 'warning');" />
+                                                <%-- <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server"
+                                                    ID="LinkButtonDelete" Text="Delete" CommandName="Delete" OnClientClick="return fancyConfirm('Are you sure you want to visit Code Scratcher?', this, 'Yes', 'No');" /> --%>
                                             </td>
                                         </tr>
                                     </ItemTemplate>

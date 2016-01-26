@@ -38,7 +38,6 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
-               <%-- <asp:ScriptReference Name="Notificator.js"  Path="~/Scripts/Notificator.js"/>--%>
             </Scripts>
         </asp:ScriptManager>
 
@@ -123,7 +122,7 @@
                     DataSourceID="SiteMapDataSource"
                     StaticDisplayLevels="2"
                     RenderingMode="Default"
-                    staticEnableDefaultPopOutImage= False
+                    StaticEnableDefaultPopOutImage="False"
                     DynamicHorizontalOffset="10">
                 </asp:Menu>
             </div>
@@ -131,7 +130,7 @@
             <footer>
                 <p class="text-center">&copy; <%: DateTime.Now.Year %> - Teletik Academy Teamwork</p>
             </footer>
-           <%-- <script src="/Controls/Notificator/Scripts/Notificator.js"></script>--%>
+            <%-- <script src="/Controls/Notificator/Scripts/Notificator.js"></script>--%>
         </div>
     </form>
 </body>
