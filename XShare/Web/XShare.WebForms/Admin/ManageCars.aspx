@@ -36,8 +36,8 @@
                                             ID="DDL_FilterByType"
                                             CssClass="form-control input-sm"
                                             SelectMethod="GetCarType"
-                                            runat="server" 
-                                            OnDataBound="DDL_FilterByType_DataBound"/>
+                                            runat="server"
+                                            OnDataBound="DDL_FilterByType_DataBound" />
 
 
                                     </th>
@@ -221,7 +221,12 @@
                                     </EditItemTemplate>
 
                                     <EmptyDataTemplate>
-                                        <h5 class="content-empty">No items available</h5>
+                                        <tr>
+                                            <td colspan="8">
+                                                <h4 class="content-empt text-danger">There are no cars with that parameters!</h4>
+                                                <h5 class="content-empty text-info">Try to search with other prams.</h5>
+                                            </td>
+                                        </tr>
                                     </EmptyDataTemplate>
                                 </asp:ListView>
                             </table>
@@ -231,7 +236,7 @@
             </div>
 
             <div class="row text-center bs-component">
-                <asp:DataPager ID="PagerReservations" PagedControlID="ListViewAllCars" runat="server" CssClass="btn-group btn-group-sm" PageSize="5">
+                <asp:DataPager ID="PagerCars" PagedControlID="ListViewAllCars" runat="server" CssClass="btn-group btn-group-sm" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
                             ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"

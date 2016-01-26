@@ -19,10 +19,10 @@
 
                                 <tr>
                                     <th class="text-center" colspan="3">
-                                         <asp:LinkButton runat="server" Text="Clear all filters" ID="LB_ClearFilters"
+                                        <asp:LinkButton runat="server" Text="Clear all filters" ID="LB_ClearFilters"
                                             OnClick="OnClearFIltersClick" CssClass="btn btn-danger btn-sm full-width" />
                                     </th>
-                                    
+
                                     <th class="text-center">
                                         <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreFromLocation" />
                                     </th>
@@ -30,7 +30,7 @@
                                         <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreToLocation" />
                                     </th>
                                     <th class="text-center no-wrap">
-                                         <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByCarModel" />
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByCarModel" />
                                     </th>
                                     <th class="text-center no-wrap">
                                         <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByUser" />
@@ -174,9 +174,13 @@
                                             <asp:LinkButton CssClass="btn btn-xs btn-info fill-width wrap" runat="server" ID="LinkButtonCancel" Text="Cancel" CommandName="Cancel" />
                                         </td>
                                     </EditItemTemplate>
-
                                     <EmptyDataTemplate>
-                                        <h5 class="content-empty">No items available</h5>
+                                        <tr>
+                                            <td colspan="8">
+                                                <h4 class="content-empt text-danger">There are no reservations with that parameters!</h4>
+                                                <h5 class="content-empty text-info">Try to search with other prams.</h5>
+                                            </td>
+                                        </tr>
                                     </EmptyDataTemplate>
                                 </asp:ListView>
                             </table>

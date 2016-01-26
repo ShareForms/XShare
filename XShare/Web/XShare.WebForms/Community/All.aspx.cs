@@ -19,7 +19,8 @@
 
         public IQueryable<User> GridViewAll_GetUserData(string sortByExpression)
         {
-            var usersQuery = this.UserService.GetAll();
+            var usersQuery = this.UserService.GetAll()
+                                .Where(u => !u.Roles.Any());
 
             if (sortByExpression != null)
             {

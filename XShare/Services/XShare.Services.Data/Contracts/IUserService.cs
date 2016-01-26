@@ -1,7 +1,5 @@
 ﻿namespace XShare.Services.Data.Contracts
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using XShare.Data.Models;
 
@@ -16,5 +14,13 @@
         int GetLastCarId(string name);
 
         int UserCount();
+
+        void UpdateUser(User userToUpdate);
+
+        User GetById(string userId);
+
+        IQueryable<User> GetFiltered(string id, string userName, string email, string phone);
+
+        void DeleteById(string id);
     }
 }

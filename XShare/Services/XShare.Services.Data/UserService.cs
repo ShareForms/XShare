@@ -1,10 +1,6 @@
 ﻿namespace XShare.Services.Data
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using XShare.Data.Models;
     using XShare.Data.Repositories;
     using XShare.Services.Data.Contracts;
@@ -54,6 +50,57 @@
         public int UserCount()
         {
             return this.users.All().Count();
+        }
+
+        public void UpdateUser(User userToUpdate)
+        {
+            this.users.Update(userToUpdate);
+
+            this.users.SaveChanges();
+        }
+
+        public User GetById(string userId)
+        {
+            return this.users.GetById(userId);
+        }
+
+        public IQueryable<User> GetFiltered(string id, string userName, string email, string phone)
+        {
+            var usersQuery = this.users.All();
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                usersQuery = usersQuery.Where(c => c.Id == id);
+            }
+
+            if (!string.IsNullOrEmpty(userName))
+            {
+                usersQuery = usersQuery.Where(c => c.UserName.Contains(userName));
+            }
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                usersQuery = usersQuery.Where(c => c.Email.Contains(email));
+            }
+
+            if (!string.IsNullOrEmpty(phone))
+            {
+                usersQuery = usersQuery.Where(c => c.PhoneNumber.Contains(phone));
+            }
+
+            return usersQuery;
+        }
+
+        public void DeleteById(string id)
+        {
+            User itemToDelet = this.users.GetById(id);
+
+            if (itemToDelet != null)
+            {
+                this.users.Delete(itemToDelet);
+
+                this.users.SaveChanges();
+            }
         }
     }
 }

@@ -517,6 +517,7 @@
     <Compile Include="Controls\YoutubeIfreme\YouTubeIframe.ascx.designer.cs">
       <DependentUpon>YouTubeIframe.ascx</DependentUpon>
     </Compile>
+    <Compile Include="DataTransferModels\UserAdminPanelModel.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
