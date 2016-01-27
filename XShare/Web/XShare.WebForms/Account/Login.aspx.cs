@@ -39,6 +39,8 @@ namespace XShare.WebForms.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        Notificator.AddInfoMessage($"Hello {UserName.Text}");
+                        Notificator.ShowAfterRedirect = true;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

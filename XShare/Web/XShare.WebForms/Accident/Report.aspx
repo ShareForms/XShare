@@ -34,7 +34,16 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-9 col-lg-offset-3 pull-right">
-                                <asp:Button ID="Btn" runat="server" OnClick="Btn_Report" Text="Report!" CssClass="btn btn-info full-width" />
+                                 <asp:Button
+                                        CssClass="btn btn-info full-width"
+                                        data-toggle="modal"
+                                        ID="Btn"
+                                        data-target="#confirmator"
+                                        runat="server"
+                                        Text="Report!"
+                                        OnCommand="Btn_Report"
+                                        OnClientClick="return xconfirm(this, 'Important', 'You are about report an accident!', 'warning');" />
+                                <%--<asp:Button ID="Btn" runat="server" OnClick="Btn_Report" Text="Report!" CssClass="btn btn-info full-width" />--%>
                             </div>
                         </div>
                     </fieldset>

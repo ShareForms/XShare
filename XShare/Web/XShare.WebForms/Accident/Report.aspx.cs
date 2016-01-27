@@ -3,6 +3,7 @@
     using System;
     using System.IO;
     using Ninject;
+    using XShare.Data.Models;
     using XShare.Services.Data.Contracts;
     using XShare.WebForms.Controls.Notificator;
 
@@ -28,13 +29,15 @@
                 var descriptionToAdd = this.Description.Text;
                 var locationToAdd = this.Location.Text ?? string.Empty;
                 string userName = string.Empty;
+                var success = false;
+                Accident addenAccident = null;
 
                 if (Image.HasFile)
                 {
                     try
                     {
                         if (Image.PostedFile.ContentType == "image/jpeg" ||
-                             Image.PostedFile.ContentType == "image/png")
+                            Image.PostedFile.ContentType == "image/png")
                         {
                             if (Image.PostedFile.ContentLength < 1048576)
                             {
@@ -42,28 +45,41 @@
                                 string filename = userName + Path.GetFileName(Image.FileName);
                                 Image.SaveAs(Server.MapPath("~/Uploaded_Files/") + filename);
                                 adressToAdd = "~/Uploaded_Files/" + filename;
+
+
+                                var userId = this.UserService.GetUserId(userName);
+                                var carId = this.UserService.GetLastCarId(userName);
+
+                                 addenAccident = this.AccidentService.CreateAccident(locationToAdd, adressToAdd,
+                                    descriptionToAdd, carId, userId);
+
+                                Notificator.AddSuccessMessage(
+                                    $"Success you have reported new accident, we are waiting for the next one as soon as possible!");
+                                Notificator.ShowAfterRedirect = true;
+
+                                success = true;
                             }
                             else
-                                ErrorMessage.Text = "Upload status: The file has to be less than 1 MB!";
+                            {
+                                Notificator.AddErrorMessage("Upload status: The file has to be less than 1 MB!");
+                            }
                         }
                         else
-                            ErrorMessage.Text = "Upload status: Only JPEG and PNG files are accepted!";
+                        {
+                            Notificator.AddErrorMessage("Upload status: Only JPEG and PNG files are accepted!");
+                        }
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                        Notificator.AddErrorMessage("Upload status: The file could not be uploaded. The following error occured: " + ex.Message);
                     }
+
+                    if(success)
+                    {
+                        this.Response.Redirect("~/Accident/Details.aspx?id=" + addenAccident.Id);
+                    }
+
                 }
-
-                var userId = this.UserService.GetUserId(userName);
-                var carId = this.UserService.GetLastCarId(userName);
-
-                var addenAccident = this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, carId, userId);
-
-                Notificator.AddSuccessMessage($"Success you have reported new accident, we are waiting for the next one as soon as possible!");
-                Notificator.ShowAfterRedirect = true;
-
-                this.Response.Redirect("~/Accident/Details.aspx?id=" + addenAccident.Id);
             }
         }
     }

@@ -145,7 +145,7 @@
                                         Text="Reserve"
                                         CommandArgument="<%#: Item.Id %>"
                                         OnCommand="Btn_Reservation_OnClick"
-                                        OnClientClick="return xconfirm(this, 'x-title', 'x-message', 'info');" />
+                                        OnClientClick="return xconfirm(this, 'Important', 'You are about to make reservation.!', 'info');" />
                                 </td>
                             </tr>
                         </ItemTemplate>
