@@ -1,6 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="XShare.WebForms.SiteMaster" %>
 
 <%@ Register Src="~/Controls/Notificator/Notificator.ascx" TagPrefix="xcontrol" TagName="Notificator" %>
+<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="xcontrol" TagName="Confirmator" %>
+
 
 <!DOCTYPE html>
 
@@ -40,6 +42,8 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        
+        <xcontrol:Confirmator runat="server" ID="Confirmator" />
 
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">

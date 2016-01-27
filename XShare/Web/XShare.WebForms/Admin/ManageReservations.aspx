@@ -35,7 +35,7 @@
                                     <th class="text-center no-wrap">
                                         <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByUser" />
                                     </th>
-                                    <th class="text-center" colspan="2">
+                                    <th class="text-center min-width-10" colspan="2">
                                         <asp:LinkButton runat="server" Text="Filter" ID="LB_FilterFromLocation"
                                             OnClick="OnFilterClick" CssClass="btn btn-success btn-sm full-width" />
                                     </th>
@@ -100,7 +100,7 @@
                                             <th class="text-center">
                                                 <asp:Literal Text="Details" runat="server" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center min-width-10">
                                                 <asp:Literal Text="Action" runat="server" />
                                             </th>
                                         </tr>

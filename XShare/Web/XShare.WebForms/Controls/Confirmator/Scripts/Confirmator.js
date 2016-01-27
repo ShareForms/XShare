@@ -1,8 +1,10 @@
 ﻿function xconfirm(btn, title, msg, style) {
     $('#confirmator').modal({ backdrop: 'static', keyboard: false })
     if (btn.attributes && btn.attributes['data-placeholder']) {
-      msg = $.validator.format(msg,  btn.attributes['data-placeholder'].value.split(','));
+        msg = $.validator.format(msg, btn.attributes['data-placeholder'].value.split(','));
     }
+
+    debugger;
 
     $('#btn-xconfirm').addClass('btn-' + style);
     $('#confirmator-body').addClass('alert-' + style);
@@ -26,6 +28,12 @@
             $('#btn-xcancel').click();
 
             eval(func);
+
+        } else if (btn.name) {
+
+            debugger;
+
+            __doPostBack(btn.name, '');
 
         } else {
             $('#confirmator-body').addClass('alert-danger' + style);

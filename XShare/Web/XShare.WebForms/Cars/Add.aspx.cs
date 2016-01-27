@@ -25,7 +25,7 @@ namespace XShare.WebForms.Cars
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void Btn_AddCar(object sender, EventArgs e)
@@ -67,6 +67,21 @@ namespace XShare.WebForms.Cars
                 .Cast<CarTypes>()
                 .Select(x => x.ToString());
             return carTypes;
+        }
+
+        protected void SetDataParams(object sender, EventArgs e)
+        {
+            if (this.readytoave.Checked)
+            {
+                this.BtnAddCar.Enabled = true;
+            }
+            else
+            {
+                this.BtnAddCar.Enabled = false;
+            }
+            var placeholder = $"{this.Description.Text},{this.FuelEconomy.Text} {this.PictureUrl.Text}, {this.CarType.SelectedItem.Text}";
+
+            this.BtnAddCar.Attributes.Add("data-placeholder", placeholder);
         }
     }
 }

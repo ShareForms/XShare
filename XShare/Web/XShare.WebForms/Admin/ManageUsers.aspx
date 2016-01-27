@@ -58,7 +58,7 @@
                                             OnClick="OnClearFIltersClick" CssClass="btn btn-danger btn-sm full-width" />
                                     </th>
 
-                                    <th class="text-center no-wrap" style="min-width: 130px">
+                                    <th class="text-center no-wrap min-width-15">
                                         <asp:DropDownList CssClass="form-control input-sm no-wrap full-width"
                                             runat="server"
                                             ID="DDL_FilterByRole">
@@ -69,7 +69,7 @@
                                         </asp:DropDownList>
                                     </th>
 
-                                    <th class="text-center" style="min-width: 100px">
+                                    <th class="text-center min-width-10">
                                         <asp:LinkButton runat="server" Text="Filter" ID="LB_FilterFromLocation"
                                             OnClick="OnFilterClick" CssClass="btn btn-success btn-sm full-width" />
                                     </th>
@@ -116,15 +116,30 @@
                                                     CommandArgument="PhoneNumber" />
                                             </th>
                                             <th class="text-center">
-                                                <asp:Label Text="Reservations" runat="server" />
+                                                <asp:LinkButton Text="Reservations"
+                                                    runat="server"
+                                                    ID="SortByReservations"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Reservations.Count" />
+                                                <%--   <asp:Label Text="Reservations" runat="server" />--%>
                                             </th>
                                             <th class="text-center">
-                                                <asp:Label Text="Accidents" runat="server" />
+                                                <asp:LinkButton Text="Accidents"
+                                                    runat="server"
+                                                    ID="SortByAccidents"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Accidents.Count" />
+                                                <%--<asp:Label Text="Accidents" runat="server" />--%>
                                             </th>
                                             <th class="text-center no-wrap">
-                                                <asp:Label Text="Is admin" runat="server" />
+                                                <asp:LinkButton Text="Is admin"
+                                                    runat="server"
+                                                    ID="SortByRoles"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Roles.Count" />
+                                              <%--  <asp:Label Text="Is admin" runat="server" />--%>
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center min-width-10">
                                                 <asp:Literal Text="Action" runat="server" />
                                             </th>
                                         </tr>

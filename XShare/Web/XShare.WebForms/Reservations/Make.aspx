@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Make new reservation" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Make.aspx.cs" Inherits="XShare.WebForms.Reservations.Make" %>
 
-<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="uc1" TagName="Confirmator" %>
+<%--<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="uc1" TagName="Confirmator" %>--%>
 
 
 <asp:Content ID="BodyContentMake" ContentPlaceHolderID="MainContent" runat="server">
@@ -11,7 +11,7 @@
                 <asp:Literal runat="server" ID="ErrorMessage" />
             </p>
 
-            <uc1:Confirmator runat="server" ID="Confirmator" />
+            <%--<uc1:Confirmator runat="server" ID="Confirmator" />--%>
             <hr />
             <div class="form-horizontal">
                 <div class="form-group">

@@ -2,17 +2,19 @@
 
 <div class="modal fade noselect" tabindex="-1" id="confirmator" role="dialog">
     <div class="modal-dialog">
-        <div class="alert noselect" id="confirmator-body">
-            <div class="modal-header noselect">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title noselect" id="confirmator-title">X-title</h4>
-            </div>
-            <div class="modal-body noselect">
-                <p id="confirmator-text" class="noselect">X-message</p>
-            </div>
-            <div class="modal-footer noselect">
-                <button type="button" class="btn btn-lg noselect" id="btn-xconfirm">Do it!</button>
-                <button type="button" class="btn btn-primary noselect" id="btn-xcancel" data-dismiss="modal">Cancel</button>
+        <div class="">
+            <div class="alert noselect"  id="confirmator-body">
+                <div class="modal-header noselect">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title noselect" id="confirmator-title">X-title</h4>
+                </div>
+                <div class="modal-body noselect wtap-words" id="confirmator-text" >
+                    <%--<div  class="  noselect </div>--%>
+                </div>
+                <div class="modal-footer noselect">
+                    <button type="button" class="btn btn-lg noselect" id="btn-xconfirm">Do it!</button>
+                    <button type="button" class="btn btn-primary noselect" id="btn-xcancel" data-dismiss="modal">Cancel</button>
+                </div>
             </div>
         </div>
         <!-- /.modal-content -->

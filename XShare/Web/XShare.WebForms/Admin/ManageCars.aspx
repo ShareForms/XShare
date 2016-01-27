@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Manage cars" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageCars.aspx.cs" Inherits="XShare.WebForms.Admin.ManageCars" %>
 
-<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="xcontrols" TagName="Confirmator" %>
+<%--<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="xcontrols" TagName="Confirmator" %>--%>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,7 +32,7 @@
             </div>
             <!-- /.modal -->--%>
 
-            <xcontrols:Confirmator runat="server" ID="Confirmator" />
+            <%--<xcontrols:Confirmator runat="server" ID="Confirmator" />--%>
 
             <br />
             <div class="row text-center">
@@ -126,7 +126,7 @@
                                             <th class="text-center">
                                                 <asp:Literal Text="Details" runat="server" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center min-width-10">
                                                 <asp:Literal Text="Action" runat="server" />
                                             </th>
                                         </tr>
