@@ -3,83 +3,60 @@ XShare
 
 ----
 
-1.	Users – list top users by number of reservations
-a.	Username 
-b.	E-mail
-c.	Phone
-d.	Ref My reservations 
-e.	Ref My Accidents
-f.	Roles – [Admin, Customer, Owner]
-i.	If owner
-ii.	Can add car 
+## Team Members
+* Ivo Paunov
+* Chavdar Angelov
 
-2.	Admins can edit users, cars, delete users, cars and trips and to add other admins
+----
 
-3.	Reserve a car 
-a.	From 
-b.	To
-c.	Ref Car
-d.	Date of reservation
+### An ASP.NET Web Forms Project
 
-4.	Accident – list of recent accident paging and sorting by date
-a.	Location
-b.	Picture upload ! (save on file system ?)
-c.	Description
-d.	Date – now -> time of submition
+----
 
-5.	Car – list of all cars paging and sorting 
-a.	Class [compact, small, luxury, electric] -> enum
-b.	Features
-c.	Fuel economy - string
-d.	Rating
+### Description
 
-Задачи: 
+This is an application designed to help people to use the car share service.
+For building this application it was used Repository pattern for the database layer, 
+Services for securing the connection the Web Forms project and the database 
+and Dependency Injection with Ninject to have nice and clean code.
+Bootstrap is used for making the application good looking
 
-1.	Cars
+The Data Base Models are as follows:
 
-  a.	Сортировка само за регистрирани потребители
-  
-  b.	Огрничаване на достъпа на нерисгистрирани user-и до детайлите
-  
-  c.	(страница с детайли за всяка кола)
+Users, Car and the affiliated classes Feature, Rating and CarTypes, Resrervation and Accident 
 
-2.	Reservation
+Bellow are listed the main functionalities.
 
-  a.	Създаване на нова резервация
-  
-  b.	Сортиране само за регистрирани потребители  и пейджиране
-  
-  c.	(страница с детайли за всяка резервация)
-  
-3.	Report an accident
+1. There is Public and Private Part of the application and Admin area as well
 
-  a.	Форма с Upload на снимка и другите детайли
+2. Users after registring are allowed to edit their profile data
+ 
+3. On the about page there is short information about the service and the latest statistics, wich are cashed for 10 minutes
 
-  b.	Достъпно само за регистрирани потребители
+4. The car section allows the user the view all vehicle, which can be reseved (there is a deteid view as well), and to give ratings to the cars. There is an option to add a new car.
 
-4.	Admin panel
+5. On the reservation screen are listed the latest reservations. The user can make a new one and than to view the details of his reservation.
 
-  a.	Delete/update/add users, cars, reservations and accidents
+6. In case of an accident the user can report it by uploading an image and giving short description and loaction of the accident.
+There is an detailed view of the accident as well offering an list of all accidents provided view AJAX in order to avoid refreshing the hole page
 
-5.	About Page – Statistics
+7. In the Our Community section there is a brief overview of all user allowing server side sorting and paging.
 
-  a.	Статистика с брой регистрирани потребители, коли и резервации и кеширане на данните 
+8. In the Admin Panel there a lot of different options availible. In general there is posibility for delete andediting almost everything availible on this application, even making other users admins !
 
-6.	Sitemap navigation
+9. An site map is offered to the users helping them to navigate easely
 
-7.	TopUsers
+10. There are 3 ASCX user controls
 
-  a.	Страница с всички потребител с пейджиране и сортиране
+11. There is data validation on all input fields
 
-8.	Validation 
+12. HTML scripts are escaped and the end user won't have any bad surprices
 
-  a.	Отнася се за всички инпут полета
+- - - - 
 
-9.	Unathorized screen/redirect to login
+###### Repo of Team-3-Telerik [Link to GitHub](https://github.com/ShareForms/XShare)
 
-10.	Loading bar между зареждането на страници (extra)
+- - - -
 
-11.	Използване на AJAX
-
-12.	ASCX user controls – at least 4 of them
+###### Telereik-Academy Season 2015-2016 
 
