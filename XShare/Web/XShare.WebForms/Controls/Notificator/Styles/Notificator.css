@@ -1,17 +1,17 @@
 ﻿.flyover {
-    left: 50%;
-overflow: hidden;
-position: fixed;
-width: 50%;
+    left: 150%;
+    overflow: hidden;
+    position: fixed;
+    width: 50%;
     -ms-opacity: 0.92;
     opacity: 0.92;
-z-index: 1050;
+    z-index: 1050;
     -webkit-transition: left 1s ease-out 0s;
     -moz-transition: left 1s ease-out 0s;
     -ms-transition: left 1s ease-out 0s;
     -o-transition: left 1s ease-out 0s;
     transition: left 1s ease-out 0s;
-top: 10%;
+    top: 10%;
 }
 
 .flyover-centered {
@@ -22,13 +22,12 @@ top: 10%;
     transform: translate(-50%, -50%);
 }
 
-.flyover.in 
-{
-left: 50%;
+.flyover.in {
+    left: 50%;
 }
 
 .flyover-bottom {
-   bottom: 10px;
+    bottom: 10px;
 }
 
 .position-top-10 {
@@ -62,4 +61,3 @@ left: 50%;
 .position-top-80 {
     top: 96%;
 }
-

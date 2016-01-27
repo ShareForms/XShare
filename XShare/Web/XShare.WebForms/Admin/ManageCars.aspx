@@ -171,7 +171,6 @@
                                                     data-toggle="modal" 
                                                     ID="ButtonDelete"
                                                     data-target="#confirmator"
-                                                    data-action="Delete"
                                                     runat="server"
                                                     Text="Delete"
                                                     CommandName="Delete"

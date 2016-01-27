@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Make new reservation" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Make.aspx.cs" Inherits="XShare.WebForms.Reservations.Make" %>
 
+<%@ Register Src="~/Controls/Confirmator/Confirmator.ascx" TagPrefix="uc1" TagName="Confirmator" %>
+
+
 <asp:Content ID="BodyContentMake" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid">
         <div class="row text-center">
@@ -7,6 +10,8 @@
             <p class="text-danger">
                 <asp:Literal runat="server" ID="ErrorMessage" />
             </p>
+
+            <uc1:Confirmator runat="server" ID="Confirmator" />
             <hr />
             <div class="form-horizontal">
                 <div class="form-group">
@@ -33,7 +38,7 @@
                             CssClass="text-danger" ErrorMessage="Take location is required." />
                     </div>
                 </div>
-                       <div class="form-group">
+                <div class="form-group">
                     <asp:Label runat="server" AssociatedControlID="To" CssClass="col-md-3 control-label">Take to</asp:Label>
                     <div class="col-md-5">
                         <asp:TextBox runat="server" ID="To" CssClass="form-control" TextMode="SingleLine" />
@@ -91,7 +96,7 @@
                                     <th class="text-center">
                                         <asp:Literal Text="Details" runat="server" />
                                     </th>
-                                     <th class="text-center">
+                                    <th class="text-center">
                                         <asp:Literal Text="Reserve this car" runat="server" />
                                     </th>
                                 </tr>
@@ -117,13 +122,24 @@
                                     <asp:HyperLink NavigateUrl='<%#: "/Cars/CarDetails?id=" + Item.Id %>' runat="server"> Details
                                     </asp:HyperLink>
                                 </td>
-                                   <td>
-                                    <asp:Button runat="server" 
-                                        Text="Reserve" 
-                                        CssClass="btn btn-sm btn-success" 
+                                <td>
+                                    <%--      <asp:Button runat="server"
+                                        Text="Reserve"
+                                        CssClass="btn btn-sm btn-success"
                                         OnClick="Btn_Reservation_OnClick"
-                                        CommandArgument="<%#: Item.Id %>">
-                                    </asp:Button>
+                                        CommandArgument="<%#: Item.Id %>" />--%>
+
+                                    <%--TODO: ADD command argument and take it from code behinf--%>
+                                    <asp:LinkButton
+                                        CssClass="btn btn-xs btn-success full-width wrap"
+                                        data-toggle="modal"
+                                        ID="ButtonReserve"
+                                        data-target="#confirmator"
+                                        runat="server"
+                                        Text="Reserve"
+                                        CommandArgument="<%#: Item.Id %>"
+                                        OnCommand="Btn_Reservation_OnClick"
+                                        OnClientClick="return xconfirm(this, 'x-title', 'x-message', 'info');" />
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -135,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <div class="bs-component text-center" runat="server" ID="TestSelect">
+        <div class="bs-component text-center" runat="server" id="TestSelect">
             <asp:DataPager ID="DataPagerAvailable" PagedControlID="ViewAvailableCars" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
                 <Fields>
                     <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"

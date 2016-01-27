@@ -42,7 +42,7 @@
         {
             if (Page.IsValid)
             {
-                Button btn = (Button)sender;
+                LinkButton btn = (LinkButton)sender;
                 int carId = int.Parse(btn.CommandArgument);
                 string userId = this.UsersService.GetUserId(this.User.Identity.Name);
 

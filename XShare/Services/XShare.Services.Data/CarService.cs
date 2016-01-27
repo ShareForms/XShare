@@ -58,8 +58,8 @@
                 CarType = carCarType
             };
 
-            this.cars.Add(carToAdd);
-            this.cars.SaveChanges();
+            //this.cars.Add(carToAdd);
+            //this.cars.SaveChanges();
 
             foreach (var featureId in carFeaturesIds)
             {

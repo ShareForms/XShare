@@ -1,17 +1,33 @@
 ﻿function xconfirm(btn, title, msg, style) {
 
-    // debugger;
     $('#confirmator-body').addClass('alert-' + style);
     $('#confirmator-title').text(title);
     $('#confirmator-text').text(msg);
 
-    $('#btn-confirm').on('click', function (event) {
+    $('#btn-xconfirm').on('click', function (event) {
 
-        var eventt = $("#" + btn.id).attr('href').split(':')[1].replace("__doPostBack('", "").replace("','')", "");
+        if (btn.href && btn.href.indexOf("__doPostBack") > -1) {
 
-        $('#exampleModal').modal('toggle');
+            var event = btn.href.split(':')[1]
+                .replace("__doPostBack('", "").replace("','')", "");
 
-        __doPostBack(eventt, '');
+            $('#btn-xcancel').click();
+
+            __doPostBack(event, '');
+
+        } else if (btn.href && btn.href.indexOf("WebForm_DoPostBackWithOptions") > -1) {
+            var func = btn.href.split(':')[1];
+
+            $('#btn-xcancel').click();
+
+            eval(func);
+
+        } else {
+            $('#confirmator-body').addClass('alert-danger' + style);
+            $('#confirmator-title').text("Fatal Error");
+            $('#confirmator-text').text("Something get really wrong, please contact the user control creator!");
+            return false;
+        }
 
         return true;
     });
