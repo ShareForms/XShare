@@ -27,30 +27,30 @@ Users, Car and the affiliated classes Feature, Rating and CarTypes, Resrervation
 
 Bellow are listed the main functionalities.
 
-1. There is Public and Private Part of the application and Admin area as well
+1.	There is Public and Private Part of the application and Admin area as well
 
-2. Users after registring are allowed to edit their profile data
- 
-3. On the about page there is short information about the service and the latest statistics, wich are cashed for 10 minutes
+2.	Users after registering are allowed to edit their profile data
 
-4. The car section allows the user the view all vehicle, which can be reseved (there is a deteid view as well), and to give ratings to the cars. There is an option to add a new car.
+3.	On the about page there is short information about the service and the latest statistics, which are cashed for 10 minutes
 
-5. On the reservation screen are listed the latest reservations. The user can make a new one and than to view the details of his reservation.
+4.	The car section allows the user the view all vehicle, which can be reserved (there is a detailed view as well), and to give ratings to the cars. There is an option to add a new car.
 
-6. In case of an accident the user can report it by uploading an image and giving short description and loaction of the accident.
-There is an detailed view of the accident as well offering an list of all accidents provided view AJAX in order to avoid refreshing the hole page
+5.	On the reservation screen are listed the latest reservations. The user can make a new one and than to view the details of his reservation.
 
-7. In the Our Community section there is a brief overview of all user allowing server side sorting and paging.
+6.	In case of an accident the user can report it by uploading an image and giving short description and location of the accident. There is an detailed view of the accident as well offering an list of all accidents provided view AJAX in order to avoid refreshing the hole page
 
-8. In the Admin Panel there a lot of different options availible. In general there is posibility for delete andediting almost everything availible on this application, even making other users admins !
+7.	In the Our Community section there is a brief overview of all user allowing server side sorting and paging.
 
-9. An site map is offered to the users helping them to navigate easely
+8.	In the Admin Panel there a lot of different options available. In general there is possibility for delete and editing almost
+everything available on this application, even making other users admins !
 
-10. There are 3 ASCX user controls
+9.	An site map is offered to the users helping them to navigate easily
 
-11. There is data validation on all input fields
+10.	There are 3 ASCX user controls
 
-12. HTML scripts are escaped and the end user won't have any bad surprices
+11.	There is data validation on all input fields
+
+12.	HTML scripts are escaped and the end user won't have any bad surprises
 
 - - - - 
 
