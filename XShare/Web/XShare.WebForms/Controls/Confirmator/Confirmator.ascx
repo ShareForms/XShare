@@ -9,7 +9,6 @@
                     <h4 class="modal-title noselect" id="confirmator-title">X-title</h4>
                 </div>
                 <div class="modal-body noselect wtap-words" id="confirmator-text" >
-                    <%--<div  class="  noselect </div>--%>
                 </div>
                 <div class="modal-footer noselect">
                     <button type="button" class="btn btn-lg noselect" id="btn-xconfirm">Do it!</button>

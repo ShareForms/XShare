@@ -1,13 +1,9 @@
-﻿using System;
-using System.Linq;
-using XShare.Data.Models;
-
+﻿
 namespace XShare.WebForms.Cars
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using Data.Models;
@@ -25,7 +21,6 @@ namespace XShare.WebForms.Cars
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
         }
 
         protected void Btn_AddCar(object sender, EventArgs e)
@@ -71,15 +66,22 @@ namespace XShare.WebForms.Cars
 
         protected void SetDataParams(object sender, EventArgs e)
         {
-            if (this.readytoave.Checked)
+            Page.Validate();
+
+            if (this.readytoave.Checked && Page.IsValid)
             {
                 this.BtnAddCar.Enabled = true;
+            }
+            else if (this.readytoave.Checked && !Page.IsValid)
+            {
+                Notificator.AddWarningMessage("All fields are required");
+                this.BtnAddCar.Enabled = false;
             }
             else
             {
                 this.BtnAddCar.Enabled = false;
             }
-            var placeholder = $"{this.Description.Text},{this.FuelEconomy.Text} {this.PictureUrl.Text}, {this.CarType.SelectedItem.Text}";
+            var placeholder = $"{this.Description.Text},{this.FuelEconomy.Text}, {this.PictureUrl.Text}, {this.CarType.SelectedItem.Text}";
 
             this.BtnAddCar.Attributes.Add("data-placeholder", placeholder);
         }

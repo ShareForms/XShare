@@ -25,6 +25,7 @@
                             <label for="FuelEconomy" class="col-md-3 control-label">Fuel Economy</label>
                             <div class="col-md-9">
                                 <asp:TextBox ID="FuelEconomy" runat="server" CssClass="form-control"></asp:TextBox>
+                                <asp:RequiredFieldValidator ErrorMessage="Fuel Econmomy is requared" ControlToValidate="FuelEconomy" runat="server" ForeColor="Red" />
                                 <asp:RangeValidator ErrorMessage="Fuel Econmomy must be between 3 and 30 l/100km" ControlToValidate="FuelEconomy" runat="server" ForeColor="Red"
                                     MinimumValue="3"
                                     MaximumValue="30"
