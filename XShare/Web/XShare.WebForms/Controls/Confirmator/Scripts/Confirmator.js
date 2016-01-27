@@ -1,5 +1,10 @@
 ﻿function xconfirm(btn, title, msg, style) {
+    $('#confirmator').modal({ backdrop: 'static', keyboard: false })
+    if (btn.attributes && btn.attributes['data-placeholder']) {
+      msg = $.validator.format(msg,  btn.attributes['data-placeholder'].value.split(','));
+    }
 
+    $('#btn-xconfirm').addClass('btn-' + style);
     $('#confirmator-body').addClass('alert-' + style);
     $('#confirmator-title').text(title);
     $('#confirmator-text').text(msg);

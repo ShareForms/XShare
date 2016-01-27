@@ -171,10 +171,11 @@
                                                     data-toggle="modal" 
                                                     ID="ButtonDelete"
                                                     data-target="#confirmator"
+                                                    data-placeholder= '<%#: String.Format("{0},{1},{2}", Item.Id, Item.FuelEconomy, Item.CarType )%>'
                                                     runat="server"
                                                     Text="Delete"
                                                     CommandName="Delete"
-                                                    OnClientClick="return xconfirm(this, 'x-title', 'x-message', 'warning');" />
+                                                    OnClientClick="return xconfirm(this, 'Danger', 'You are about to delete car with id={0}, разход={1}, type={2}', 'danger');" />
                                                 <%-- <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server"
                                                     ID="LinkButtonDelete" Text="Delete" CommandName="Delete" OnClientClick="return fancyConfirm('Are you sure you want to visit Code Scratcher?', this, 'Yes', 'No');" /> --%>
                                             </td>
@@ -215,26 +216,6 @@
                                                     runat="server" />
                                             </td>
                                             <td class="text-left">
-                                                <%--<%--       <asp:CheckBoxList ID="DdlFeatures" runat="server" 
-                                                    SelectMethod="GetAllFeatures"
-                                                    RepeatColumns="1"
-                                                    SelectedValues='<%#: BindItem.Features %>' 
-                                                    ItemType="XShare.Data.Models.Feature"
-                                                    DataTextField="Value"
-                                                    DataValueField="Id"
-                                                    RepeatDirection="Vertical"
-                                                    RepeatLayout="Flow"
-                                                    TextAlign="Right"
-                                                    EnableTheming="True">
-                                                </asp:CheckBoxList>--%>
-                                                <%--      <asp:ListBox ID="DdlFeatures"
-                                                    CssClass="form-control input-sm"
-                                                    SelectionMode="Multiple"
-                                                    SelectMethod="GetAllFeatures"
-                                                    DataTextField="Value"
-                                                    DataValueField="Id"
-                                                    SelectedItem='<%#: BindItem.Features %>'
-                                                    runat="server"></asp:ListBox>--%>
 
                                                 <asp:DropDownList CssClass="form-control input-sm"
                                                     DataSource='<%# Item.Features.Select(f => f.Value) %>'

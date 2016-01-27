@@ -26,6 +26,16 @@
             string notifierScriptURL = this.TemplateSourceDirectory +
                 "/Scripts/Confirmator.js";
 
+            string jQueryValidatorScriptURL = this.TemplateSourceDirectory +
+            "/Scripts/jquery.validate.min.js";
+
+            if (!cs.IsClientScriptIncludeRegistered(jQueryValidatorScriptURL))
+            {
+                StringBuilder script = new StringBuilder();
+                script.Append($"<script src=\"{jQueryValidatorScriptURL}\"></script>");
+                cs.RegisterStartupScript(this.GetType(), jQueryValidatorScriptURL, script.ToString());
+            }
+
             if (!cs.IsClientScriptIncludeRegistered(notifierScriptURL))
             {
                 StringBuilder script = new StringBuilder();
