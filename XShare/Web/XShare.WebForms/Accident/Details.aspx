@@ -17,7 +17,7 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading">Image</div>
                                     <div class="panel-body">
-                                        <asp:Image ID="CrashImage" runat="server" ImageUrl='<%#: Item.Picture %>' />
+                                        <asp:Image ID="CrashImage" runat="server" ImageUrl='<%#: Item.Picture %>' Width="75%" />                        
                                     </div>
                                 </div>
                             </div>
