@@ -5,15 +5,27 @@
 
     <div class="jumbotron">
         <div class="container">
-            <div class="row text-center">
-                <h1><%: Title %></h1>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h1><%: Title %>
+                        
+                    </h1>
+                </div>
+                <div class="col-md-2 col-md-offset-1 text-right">
+                    <h1>
+                        <a runat="server" href="~/Cars/Add" class="btn btn-lg btn-success">Add New Car</a>
+                    </h1>
+                </div>
             </div>
 
             <br />
             <div class="row text-center">
                 <div class="col-md-12">
                     <div class="panel panel-warning">
-                        <div class="panel-heading text-center"><%: Title %></div>
+                        <div class="panel-heading text-center">
+
+                            <span><%: Title %></span>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="table table-striped table-hover table-bordered">
@@ -116,7 +128,7 @@
                                                 <asp:Label Text='<%#: Item.Id %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
+                                                <asp:Image ImageUrl='<%#: Item.PictureUrl %>' CssClass="img-table" runat="server" />
                                             </td>
                                             <td>
                                                 <asp:Label Text='<%#: Item.Description %>' runat="server" />
@@ -143,10 +155,10 @@
                                                 <asp:LinkButton
                                                     CssClass="btn btn-xs btn-danger full-width wrap"
                                                     type="button"
-                                                    data-toggle="modal" 
+                                                    data-toggle="modal"
                                                     ID="ButtonDelete"
                                                     data-target="#confirmator"
-                                                    data-placeholder= '<%#: String.Format("{0},{1},{2}", Item.Id, Item.FuelEconomy, Item.CarType )%>'
+                                                    data-placeholder='<%#: String.Format("{0},{1},{2}", Item.Id, Item.FuelEconomy, Item.CarType )%>'
                                                     runat="server"
                                                     Text="Delete"
                                                     CommandName="Delete"

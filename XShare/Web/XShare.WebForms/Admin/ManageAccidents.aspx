@@ -87,12 +87,14 @@
                                             </th>
                                             <th class="text-center">
                                                 <asp:LinkButton Text="Car model" runat="server"
+                                                    CssClass="no-wrap"
                                                     ID="SortCarModel"
                                                     CommandName="Sort"
                                                     CommandArgument="Car.Description" />
                                             </th>
                                             <th class="text-center">
                                                 <asp:LinkButton Text="Car type" runat="server"
+                                                    CssClass="no-wrap"
                                                     ID="SortCarType"
                                                     CommandName="Sort"
                                                     CommandArgument="Car.CarType" />
@@ -135,10 +137,10 @@
                                                 <asp:Literal Text='<%#: Item.User.UserName  %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Literal Text='<%#: Item.Car.Description %>' runat="server" />
+                                                <asp:Label CssClass="no-wrap" Text='<%#: Item.Car.Description %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Literal Text='<%#: Item.Car.CarType %>' runat="server" />
+                                                <asp:Label CssClass="no-wrap" Text='<%#: Item.Car.CarType %>' runat="server" />
                                             </td>
                                             <td>
                                                 <asp:Literal Text='<%#:  Item.Location %>' runat="server" />

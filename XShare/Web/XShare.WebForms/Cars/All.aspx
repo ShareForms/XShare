@@ -3,18 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <div class="container-fluid">
-            <asp:LoginView runat="server" ViewStateMode="Disabled">
-                <LoggedInTemplate>
-                    <div class="row text-center">
-                        <div class="col-md-8 col-md-offset-2">
-                            <h2>You can: <a runat="server" href="~/Cars/Add" class="btn btn-lg btn-success">Add New Car</a> </h2>
-                        </div>
-                    </div>
-                </LoggedInTemplate>
-            </asp:LoginView>
+
             <br />
             <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading text-center"><%: Title %></div>
                         <asp:ListView ID="ViewAllCars" runat="server"
@@ -26,41 +18,43 @@
                             DataKeyNames="Id"
                             AutoGenerateColumns="false">
                             <LayoutTemplate>
-                                <table class="table table-striped table-hover">
-                                    <tr>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Image" runat="server" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Model" runat="server"
-                                                ID="SortByModel"
-                                                CommandName="Sort"
-                                                CommandArgument="Description" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Type" runat="server"
-                                                ID="SortByCarType"
-                                                CommandName="Sort"
-                                                CommandArgument="CarType" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Fuel Economy" runat="server"
-                                                ID="SortByFuelEconomy"
-                                                CommandName="Sort"
-                                                CommandArgument="FuelEconomy" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:Literal Text="Details" runat="server" />
-                                        </th>
-                                    </tr>
-                                    <asp:PlaceHolder ID="itemplaceholder" runat="server" />
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table table-striped  table-bordered table-hover">
+                                        <tr>
+                                            <th class="text-center">
+                                                <asp:Literal Text="Image" runat="server" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Model" runat="server"
+                                                    ID="SortByModel"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Description" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Type" runat="server"
+                                                    ID="SortByCarType"
+                                                    CommandName="Sort"
+                                                    CommandArgument="CarType" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Fuel Economy" runat="server"
+                                                    ID="SortByFuelEconomy"
+                                                    CommandName="Sort"
+                                                    CommandArgument="FuelEconomy" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:Literal Text="Details" runat="server" />
+                                            </th>
+                                        </tr>
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                    </table>
+                                </div>
                             </LayoutTemplate>
 
                             <ItemTemplate runat="server">
                                 <tr>
                                     <td>
-                                        <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
+                                        <asp:Image ImageUrl='<%#: Item.PictureUrl %>' CssClass="img-table" runat="server" />
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#: Item.Description %>' runat="server" />

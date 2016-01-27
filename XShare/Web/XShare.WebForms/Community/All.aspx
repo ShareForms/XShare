@@ -4,61 +4,63 @@
     <div class="jumbotron">
         <div class="container-fluid">
             <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading text-center"><%: Title %></div>
                         <asp:ListView ID="ViewAllUsers" runat="server"
-                        SelectMethod="GridViewAll_GetUserData"
-                        ItemType="XShare.Data.Models.User"
-                        AllowPaging="True"
-                        EnableSortingAndPagingCallback="True"
-                        AllowSorting="True"
-                        DataKeyNames="Id"
-                        AutoGenerateColumns="false">
-                        <LayoutTemplate>
-                            <table class="table table-striped table-hover">
+                            SelectMethod="GridViewAll_GetUserData"
+                            ItemType="XShare.Data.Models.User"
+                            AllowPaging="True"
+                            EnableSortingAndPagingCallback="True"
+                            AllowSorting="True"
+                            DataKeyNames="Id"
+                            AutoGenerateColumns="false">
+                            <LayoutTemplate>
+                                <div class="table-responsive">
+                                    <table class="table table-striped  table-bordered table-hover">
+                                        <tr>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="User Name" runat="server"
+                                                    ID="SortByUserName"
+                                                    CommandName="Sort"
+                                                    CommandArgument="UserName" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Reservations Count" runat="server"
+                                                    ID="SortByResetrvationCount"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Reservations.Count" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Accidents Count" runat="server"
+                                                    ID="SortByAccidentsCount"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Accidents.Count" />
+                                            </th>
+                                        </tr>
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                    </table>
+                                </div>
+                            </LayoutTemplate>
+
+                            <ItemTemplate runat="server">
                                 <tr>
-                                    <th class="text-center">
-                                        <asp:LinkButton Text="User Name" runat="server"
-                                            ID="SortByUserName"
-                                            CommandName="Sort"
-                                            CommandArgument="UserName" />
-                                    </th>
-                                    <th class="text-center">
-                                        <asp:LinkButton Text="Reservations Count" runat="server"
-                                            ID="SortByResetrvationCount"
-                                            CommandName="Sort"
-                                            CommandArgument="Reservations.Count" />
-                                    </th>
-                                    <th class="text-center">
-                                        <asp:LinkButton Text="Accidents Count" runat="server"
-                                            ID="SortByAccidentsCount"
-                                            CommandName="Sort"
-                                            CommandArgument="Accidents.Count" />
-                                    </th>
+                                    <td>
+                                        <asp:Label Text='<%#: Item.UserName %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%#: Item.Reservations.Count().ToString() %>' runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%#: Item.Accidents.Count().ToString() %>' runat="server" />
+                                    </td>
                                 </tr>
-                                <asp:PlaceHolder ID="itemplaceholder" runat="server" />
-                            </table>
-                        </LayoutTemplate>
+                            </ItemTemplate>
 
-                        <ItemTemplate runat="server">
-                            <tr>
-                                <td>
-                                    <asp:Label Text='<%#: Item.UserName %>' runat="server" />
-                                </td>
-                                <td>
-                                    <asp:Label Text='<%#: Item.Reservations.Count().ToString() %>' runat="server" />
-                                </td>
-                                <td>
-                                    <asp:Label Text='<%#: Item.Accidents.Count().ToString() %>' runat="server" />
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-
-                        <EmptyDataTemplate runat="server">
-                            <h5 class="content-empty">No users available</h5>
-                        </EmptyDataTemplate>
-                    </asp:ListView>
+                            <EmptyDataTemplate runat="server">
+                                <h5 class="content-empty">No users available</h5>
+                            </EmptyDataTemplate>
+                        </asp:ListView>
                     </div>
                 </div>
             </div>

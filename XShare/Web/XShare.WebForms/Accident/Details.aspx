@@ -17,7 +17,7 @@
                                 <div class="panel panel-info">
                                     <div class="panel-heading">Image</div>
                                     <div class="panel-body">
-                                        <asp:Image ID="CrashImage" runat="server" ImageUrl='<%#: Item.Picture %>' Width="75%" />                        
+                                        <asp:Image ID="CrashImage" runat="server" ImageUrl='<%#: Item.Picture %>' Width="75%" />
                                     </div>
                                 </div>
                             </div>
@@ -34,11 +34,11 @@
                 </asp:FormView>
                 <hr />
                 <div class="row">
-                    <div class="back-link">                        
+                    <div class="back-link">
                         <asp:UpdatePanel ID="UpdatePanelAccidents" runat="server" class="panel"
                             UpdateMode="Conditional">
                             <ContentTemplate>
-                                <asp:Button Text="Back Home" runat="server" CssClass="btn btn-primary" OnClick="BackHomeClik"/>
+                                <asp:Button Text="Back Home" runat="server" CssClass="btn btn-primary" OnClick="BackHomeClik" />
                                 <asp:Button ID="InvokeAccidentsList" Text="Show Accidents" CssClass="btn btn-primary" runat="server" OnClick="ShowGridWithAccidents" />
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -49,77 +49,83 @@
         </div>
     </div>
 
-    <asp:UpdatePanel ID="UpdatePanelWithAccidents" runat="server">
-        <ContentTemplate>
-            <asp:Panel ID="ViewAllAccidentsList" runat="server" Visible="false" class="row text-center">
-                <div class="jumbotron">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="panel panel-info">
-                                <div class="panel-heading text-center"><%: Title %></div>
-                                <asp:ListView ID="ViewAllAccidents" runat="server"
-                                    SelectMethod="GridViewAll_GetAccidents"
-                                    ItemType="XShare.Data.Models.Accident"
-                                    AllowPaging="True"
-                                    EnableSortingAndPagingCallback="True"
-                                    DataKeyNames="Id"
-                                    AutoGenerateColumns="false">
-                                    <LayoutTemplate>
-                                        <table class="table table-striped table-hover">
+    <div class="jumbotron">
+        <asp:UpdatePanel ID="UpdatePanelWithAccidents" runat="server">
+            <ContentTemplate>
+                <asp:Panel ID="ViewAllAccidentsList" runat="server" Visible="false" class="row text-center">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading text-center"><%: Title %></div>
+                                    <asp:ListView ID="ViewAllAccidents" runat="server"
+                                        SelectMethod="GridViewAll_GetAccidents"
+                                        ItemType="XShare.Data.Models.Accident"
+                                        AllowPaging="True"
+                                        EnableSortingAndPagingCallback="True"
+                                        DataKeyNames="Id"
+                                        AutoGenerateColumns="false">
+                                        <LayoutTemplate>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped  table-bordered table-hover">
+                                                    <tr>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Image" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Date" runat="server" />
+                                                        </th>
+                                                        <th class="text-center">
+                                                            <asp:Literal Text="Loacation" runat="server" />
+                                                        </th>
+                                                    </tr>
+                                                    <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                                </table>
+                                            </div>
+                                        </LayoutTemplate>
+
+                                        <ItemTemplate runat="server">
                                             <tr>
-                                                <th class="text-center">
-                                                    <asp:Literal Text="Image" runat="server" />
-                                                </th>
-                                                <th class="text-center">
-                                                    <asp:Literal Text="Date" runat="server" />
-                                                </th>
-                                                <th class="text-center">
-                                                    <asp:Literal Text="Loacation" runat="server" />
-                                                </th>
+                                                <td>
+                                                    <asp:Image ImageUrl='<%#: Item.Picture %>' CssClass="img-table" runat="server" />
+                                                </td>
+                                                <td>
+                                                    <asp:Literal Text='<%#: String.Format("{0}",Item.Date.ToShortDateString()) %>' runat="server" />
+                                                </td>
+                                                <td>
+                                                    <asp:Literal Text='<%#: Item.Location %>' runat="server" />
+                                                </td>
                                             </tr>
-                                            <asp:PlaceHolder ID="itemplaceholder" runat="server" />
-                                        </table>
-                                    </LayoutTemplate>
+                                        </ItemTemplate>
+                                        <EmptyDataTemplate runat="server">
+                                            <h5 class="content-empty">No items available</h5>
+                                        </EmptyDataTemplate>
+                                    </asp:ListView>
+                                </div>
+                                <div class="bs-component text-center">
+                                    <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllAccidents" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
+                                        <Fields>
+                                            <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
+                                                ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
+                                                ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
 
-                                    <ItemTemplate runat="server">
-                                        <tr>
-                                            <td>
-                                                <asp:Image ImageUrl='<%#: Item.Picture %>' Width="50px" runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:Literal Text='<%#: String.Format("{0}",Item.Date.ToShortDateString()) %>' runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:Literal Text='<%#: Item.Location %>' runat="server" />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <EmptyDataTemplate runat="server">
-                                        <h5 class="content-empty">No items available</h5>
-                                    </EmptyDataTemplate>
-                                </asp:ListView>
-                            </div>
-                            <div class="bs-component text-center">
-                                <asp:DataPager ID="DataPagerAll" PagedControlID="ViewAllAccidents" PageSize="5" runat="server" CssClass="btn-group btn-group-sm">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
-                                            ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
-                                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                                            <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
+                                                NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
 
-                                        <asp:NumericPagerField ButtonType="Button" CurrentPageLabelCssClass="btn btn-primary disabled" RenderNonBreakingSpacesBetweenControls="false"
-                                            NumericButtonCssClass="btn btn-default" ButtonCount="10" NextPageText="..." NextPreviousButtonCssClass="btn btn-default" />
-
-                                        <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
-                                            ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
-                                            ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
-                                    </Fields>
-                                </asp:DataPager>
+                                            <asp:NextPreviousPagerField NextPageText=">" LastPageText=">>" ShowNextPageButton="true"
+                                                ShowLastPageButton="true" ShowPreviousPageButton="false" ShowFirstPageButton="false" ButtonType="Button"
+                                                ButtonCssClass="btn btn-default" RenderNonBreakingSpacesBetweenControls="false" RenderDisabledButtonsAsLabels="false" />
+                                        </Fields>
+                                    </asp:DataPager>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </asp:Panel>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+
+                </asp:Panel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
 
 </asp:Content>

@@ -113,7 +113,7 @@
                         <ItemTemplate>
                             <tr>
                                 <td>
-                                    <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
+                                    <asp:Image ImageUrl='<%#: Item.PictureUrl %>' CssClass="img-table" runat="server" />
                                 </td>
                                 <td>
                                     <asp:Label Text='<%#: Item.Description %>' runat="server" />
