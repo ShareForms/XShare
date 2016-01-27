@@ -76,7 +76,7 @@
                         AutoGenerateColumns="false">
                         <LayoutTemplate>
                             <div class="panel-heading text-center">Available Cars for the selected period</div>
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-bordered table-hover">
                                 <tr>
                                     <th class="text-center">
                                         <asp:Literal Text="Image" runat="server" />
