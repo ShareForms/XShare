@@ -19,7 +19,9 @@
                     <div class="col-md-5">
                         <asp:TextBox runat="server" ID="FromTime" CssClass="form-control" TextMode="DateTimeLocal" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="FromTime"
-                            CssClass="text-danger" ErrorMessage="Start date and time of reservation is required." />
+                            CssClass="text-danger" ErrorMessage="Start date and time of reservation is required." /> 
+                        <asp:RangeValidator ErrorMessage="Date must be not in the past" ControlToValidate="FromTime" runat="server"
+                            CssClass="text-danger" ID="ValidateFromRangeDate" />               
                     </div>
                 </div>
                 <div class="form-group">
@@ -28,6 +30,10 @@
                         <asp:TextBox runat="server" ID="ToTime" CssClass="form-control" TextMode="DateTimeLocal" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="ToTime"
                             CssClass="text-danger" ErrorMessage="End date and time of reservation is required." />
+                        <asp:CompareValidator ErrorMessage="The expiring time of the reservation can not be before the starting time" ControlToValidate="ToTime" ControlToCompare="FromTime" 
+                            Operator="GreaterThan" CssClass="text-danger"
+                            Type="String"
+                            Display="Dynamic" runat="server" />
                     </div>
                 </div>
                 <div class="form-group">

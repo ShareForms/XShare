@@ -18,8 +18,15 @@
         [Inject]
         public IReservationService ReservationService { get; set; }
 
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            this.ValidateFromRangeDate.MinimumValue = DateTime.Now.ToLocalTime().ToString("yyyy-MM-ddTHH:mm");
+            this.ValidateFromRangeDate.MaximumValue = DateTime.Now.AddYears(5).ToLocalTime().ToString("yyyy-MM-ddTHH:mm");
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void CheckAvailableCars_Click(object sender, EventArgs e)
