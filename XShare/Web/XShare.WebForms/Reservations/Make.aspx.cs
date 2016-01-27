@@ -6,6 +6,7 @@
     using Ninject;
     using XShare.Data.Models;
     using XShare.Services.Data.Contracts;
+    using XShare.WebForms.Controls.Notificator;
 
     public partial class Make : System.Web.UI.Page
     {
@@ -62,6 +63,9 @@
                     userId);
 
                 var id = newReservation.Id;
+
+                Notificator.AddSuccessMessage($"Reservation made, you can take your car from '{newReservation.From}' at {newReservation.FromTime}");
+                Notificator.ShowAfterRedirect = true;
 
                 Response.Redirect("/Reservations/Details?id=" + id);
             }

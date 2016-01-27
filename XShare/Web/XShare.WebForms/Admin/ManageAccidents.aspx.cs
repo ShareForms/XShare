@@ -7,6 +7,7 @@
     using XShare.Common.Extensions;
     using XShare.Data.Models;
     using XShare.Services.Data.Contracts;
+    using XShare.WebForms.Controls.Notificator;
 
     public partial class ManageAccidents : System.Web.UI.Page
     {
@@ -20,6 +21,7 @@
         public void ListViewAccidents_DeleteItem(int Id)
         {
             this.AccidentService.DeleteById(Id);
+            Notificator.AddWarningMessage($"I've just deleted accident with id {Id} - the process is irreversible. Just to know!");
         }
 
         public void ListViewAccidents_UpdateItem(int Id)
@@ -36,6 +38,7 @@
             if (this.ModelState.IsValid)
             {
                 this.AccidentService.UpadteAccident(item);
+                Notificator.AddInfoMessage($"You've just updated the info for accident with id {item.Id}");
             }
         }
 

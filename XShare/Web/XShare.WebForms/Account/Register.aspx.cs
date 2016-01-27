@@ -8,6 +8,8 @@ using XShare.Data.Models;
 
 namespace XShare.WebForms.Account
 {
+    using XShare.WebForms.Controls.Notificator;
+
     public partial class Register : Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -24,6 +26,9 @@ namespace XShare.WebForms.Account
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+
+                Notificator.AddSuccessMessage($"{user.UserName} welcome to the X! Now you can start using our X cars!");
+                Notificator.ShowAfterRedirect = true;
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 

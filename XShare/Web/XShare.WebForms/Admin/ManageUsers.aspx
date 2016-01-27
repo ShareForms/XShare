@@ -137,7 +137,7 @@
                                                     ID="SortByRoles"
                                                     CommandName="Sort"
                                                     CommandArgument="Roles.Count" />
-                                              <%--  <asp:Label Text="Is admin" runat="server" />--%>
+                                                <%--  <asp:Label Text="Is admin" runat="server" />--%>
                                             </th>
                                             <th class="text-center min-width-10">
                                                 <asp:Literal Text="Action" runat="server" />
@@ -177,8 +177,19 @@
                                                 <asp:LinkButton CssClass="btn btn-xs btn-warning full-width" runat="server"
                                                     ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width" runat="server"
-                                                    ID="LinkButtonDeleteUser" Text="Delete" CommandName="Delete" />
+                                                <asp:LinkButton
+                                                    CssClass="btn btn-xs btn-danger full-width wrap"
+                                                    type="button"
+                                                    data-toggle="modal"
+                                                    ID="LinkButtonDeleteUser"
+                                                    data-target="#confirmator"
+                                                    data-placeholder='<%#: String.Format("{0},{1}", Item.UserName, Item.Id)%>'
+                                                    runat="server"
+                                                    Text="Delete"
+                                                    CommandName="Delete"
+                                                    OnClientClick="return xconfirm(this, 'Danger', 'You are about to delete user with user name {0} and Id {1}! ', 'danger');" />
+                                                <%-- <asp:LinkButton CssClass="btn btn-xs btn-danger full-width" runat="server"
+                                                    ID="LinkButtonDeleteUser" Text="Delete" CommandName="Delete" />--%>
                                             </td>
                                         </tr>
                                     </ItemTemplate>

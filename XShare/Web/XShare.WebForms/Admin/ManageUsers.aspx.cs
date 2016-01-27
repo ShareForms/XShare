@@ -26,6 +26,7 @@
         public void ListViewUsers_DeleteItem(string Id)
         {
             this.UsersService.DeleteById(Id);
+            Notificator.AddWarningMessage($"I've just deleted user with id {Id} - the process is irreversible. Just to know!");
         }
 
         public void ListViewUsers_UpdateItem(string Id, string commandArgument)
@@ -59,6 +60,7 @@
             if (this.ModelState.IsValid)
             {
                 this.UsersService.UpdateUser(item);
+                Notificator.AddInfoMessage($"You've just updated the info for user {item.UserName}");
             }
         }
 

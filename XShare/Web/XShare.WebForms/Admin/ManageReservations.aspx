@@ -114,10 +114,10 @@
                                                 <asp:Literal Text='<%#: Item.Id %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Literal Text='<%#: String.Format("{0} {1}",Item.FromTime.ToShortDateString(), Item.FromTime.ToShortTimeString())   %>' runat="server" />
+                                                <asp:Label CssClass="no-wrap" Text='<%#: String.Format("{0} {1}",Item.FromTime.ToShortDateString(), Item.FromTime.ToShortTimeString())   %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Literal Text='<%#: String.Format("{0} {1}",Item.ToTime.ToShortDateString(), Item.ToTime.ToShortTimeString())  %>' runat="server" />
+                                                <asp:Label  CssClass="no-wrap" Text='<%#: String.Format("{0} {1}",Item.ToTime.ToShortDateString(), Item.ToTime.ToShortTimeString())  %>' runat="server" />
                                             </td>
                                             <td>
                                                 <asp:Literal Text='<%#: Item.From %>' runat="server" />
@@ -138,7 +138,18 @@
                                             <td class="wrap">
                                                 <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server" ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />
+                                                <asp:LinkButton
+                                                    CssClass="btn btn-xs btn-danger full-width wrap"
+                                                    type="button"
+                                                    data-toggle="modal"
+                                                    ID="LinkButtonDelete"
+                                                    data-target="#confirmator"
+                                                    data-placeholder='<%#: String.Format("{0},{1},{2},{3}, {4}", Item.Id, Item.User.UserName, Item.FromTime, Item.ToTime, Item.Car.Description )%>'
+                                                    runat="server"
+                                                    Text="Delete"
+                                                    CommandName="Delete"
+                                                    OnClientClick="return xconfirm(this, 'Danger', 'You are about to delete reservatio with id {0}, made by {1} for the period {2} to {3} with car {4}! ', 'danger');" />
+                                                <%--<asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />--%>
                                             </td>
                                         </tr>
                                     </ItemTemplate>

@@ -156,7 +156,18 @@
                                             <td class="wrap">
                                                 <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server" ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />
+                                                <asp:LinkButton
+                                                    CssClass="btn btn-xs btn-danger full-width wrap"
+                                                    type="button"
+                                                    data-toggle="modal"
+                                                    ID="LinkButtonDelete"
+                                                    data-target="#confirmator"
+                                                    data-placeholder='<%#: String.Format("{0},{1},{2},{3}, {4}", Item.Id, Item.User.UserName, Item.Car.Description, Item.Location, Item.Date )%>'
+                                                    runat="server"
+                                                    Text="Delete"
+                                                    CommandName="Delete"
+                                                    OnClientClick="return xconfirm(this, 'Danger', 'You are about to delete accident with id {0}, caused by {1}, with car {2}, at {3} on {4}', 'danger');" />
+                                                <%--<asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />--%>
                                             </td>
                                         </tr>
                                     </ItemTemplate>

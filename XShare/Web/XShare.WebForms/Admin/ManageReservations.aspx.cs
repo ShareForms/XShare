@@ -7,6 +7,7 @@
     using XShare.Common.Extensions;
     using XShare.Data.Models;
     using XShare.Services.Data.Contracts;
+    using XShare.WebForms.Controls.Notificator;
 
     public partial class ManageReservations : Page
     {
@@ -20,6 +21,7 @@
         public void ListViewReservations_DeleteItem(int Id)
         {
             this.ReservationService.DeleteById(Id);
+            Notificator.AddWarningMessage($"I've just deleted reservation with id {Id} - the process is irreversible. Just to know!");
         }
 
         public void ListViewReservations_UpdateItem(int Id)
@@ -36,6 +38,7 @@
             if (this.ModelState.IsValid)
             {
                 this.ReservationService.UpdateReservation(item);
+                Notificator.AddInfoMessage($"You've just updated the info for reservation with id {item.Id}");
             }
         }
 

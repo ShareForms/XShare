@@ -4,6 +4,7 @@
     using System.IO;
     using Ninject;
     using XShare.Services.Data.Contracts;
+    using XShare.WebForms.Controls.Notificator;
 
     public partial class Report : System.Web.UI.Page
     {
@@ -58,6 +59,9 @@
                 var carId = this.UserService.GetLastCarId(userName);
 
                 var addenAccident = this.AccidentService.CreateAccident(locationToAdd, adressToAdd, descriptionToAdd, carId, userId);
+
+                Notificator.AddSuccessMessage($"Success you have reported new accident, we are waiting for the next one as soon as possible!");
+                Notificator.ShowAfterRedirect = true;
 
                 this.Response.Redirect("~/Accident/Details.aspx?id=" + addenAccident.Id);
             }

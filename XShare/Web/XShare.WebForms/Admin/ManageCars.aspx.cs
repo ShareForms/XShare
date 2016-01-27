@@ -28,6 +28,7 @@ namespace XShare.WebForms.Admin
         public void ListViewCar_DeleteItem(int Id)
         {
             this.CarService.DeleteById(Id);
+            Notificator.AddWarningMessage($"I've just deleted car with id {Id} - the process is irreversible. Just to know!");
         }
 
         public void ListViewCar_UpdateItem(int Id)
@@ -47,6 +48,7 @@ namespace XShare.WebForms.Admin
             if (this.ModelState.IsValid)
             {
                 this.CarService.UpdateCar(item);
+                Notificator.AddInfoMessage($"You've just updated the info for car with id {item.Id}");
             }
         }
 
