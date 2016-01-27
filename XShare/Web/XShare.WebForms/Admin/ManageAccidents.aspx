@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAccidents.aspx.cs" Inherits="XShare.WebForms.Admin.ManageAccidents" %>
+﻿<%@ Page Title="Menage Accidents" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManageAccidents.aspx.cs" Inherits="XShare.WebForms.Admin.ManageAccidents" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
- <%--   
+
     <div class="jumbotron">
         <div class="container">
             <div class="row text-center">
@@ -18,53 +19,53 @@
                             <table class="table table-striped table-hover table-bordered">
 
                                 <tr>
-                                    <th class="text-center" colspan="2">
-                                        <asp:LinkButton runat="server" Text="Clear all filters" ID="LB_ClearFilters"
-                                            OnClick="OnClearFIltersClick" CssClass="btn btn-danger btn-sm full-width" />
-                                    </th>
-
                                     <th class="text-center">
-                                        <asp:TextBox CssClass="form-control input-sm"
-                                            placeholder="Filter by car model"
-                                            runat="server"
-                                            ID="TB_FiltreModel" />
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreById" />
+                                    </th>
+                                    <th></th>
+                                    <th class="text-center">
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByUserName" />
+                                    </th>
+                                    <th class="text-center no-wrap">
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByCarModel" />
                                     </th>
                                     <th class="text-center">
-
                                         <asp:DropDownList
                                             ID="DDL_FilterByType"
                                             CssClass="form-control input-sm"
                                             SelectMethod="GetCarType"
                                             runat="server"
                                             OnDataBound="DDL_FilterByType_DataBound" />
-
-
                                     </th>
-                                    <th class="text-center no-wrap">
-                                        <asp:TextBox CssClass="form-control input-sm"
-                                            TextMode="Number"
-                                            runat="server"
-                                            ID="TB_FiltreFuelEconomy"
-                                            placeholder="Filter by car fuel economy" />
+                                    <th class="text-center">
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreByLocation" />
                                     </th>
 
-                                    <th class="text-center" colspan="3">
+                                    <th class="text-center">
+                                        <asp:TextBox CssClass="form-control input-sm" runat="server" ID="TB_FiltreDescription" />
+                                    </th>
+                                    <th class="text-center">
+                                        <asp:LinkButton runat="server" Text="Clear all filters" ID="LB_ClearFilters"
+                                            OnClick="OnClearFIltersClick" CssClass="btn btn-danger btn-sm full-width" />
+                                    </th>
+                                    <th class="text-center min-width-10" colspan="2">
                                         <asp:LinkButton runat="server" Text="Filter" ID="LB_FilterFromLocation"
                                             OnClick="OnFilterClick" CssClass="btn btn-success btn-sm full-width" />
                                     </th>
                                 </tr>
 
-                                <asp:ListView ID="ListViewAllCars" runat="server"
+                                <asp:ListView ID="ViewLastestReservations" runat="server"
                                     AllowPaging="True"
-                                    SelectMethod="ListViewAllCars_GetData"
-                                    DeleteMethod="ListViewCar_DeleteItem"
-                                    UpdateMethod="ListViewCar_UpdateItem"
-                                    ItemType="XShare.Data.Models.Car"
+                                    SelectMethod="ListViewAll_GetData"
+                                    DeleteMethod="ListViewAccidents_DeleteItem"
+                                    UpdateMethod="ListViewAccidents_UpdateItem"
+                                    ItemType="XShare.Data.Models.Accident"
                                     EnableSortingAndPagingCallback="True"
                                     AllowSorting="True"
                                     DataKeyNames="Id"
                                     AutoGenerateColumns="false">
                                     <LayoutTemplate>
+
                                         <tr>
                                             <th class="text-center">
                                                 <asp:LinkButton Text="Id" runat="server"
@@ -73,38 +74,51 @@
                                                     CommandArgument="Id" />
                                             </th>
                                             <th class="text-center">
-                                                <asp:Literal Text="Image" runat="server" />
-                                            </th>
-                                            <th class="text-center">
-                                                <asp:LinkButton Text="Model" runat="server"
-                                                    ID="SortByModel"
+                                                <asp:LinkButton Text="Date" runat="server"
+                                                    ID="SortByDate"
                                                     CommandName="Sort"
-                                                    CommandArgument="Description" />
+                                                    CommandArgument="Date" />
                                             </th>
                                             <th class="text-center">
-                                                <asp:LinkButton Text="Type" runat="server"
-                                                    ID="SortByCarType"
+                                                <asp:LinkButton Text="User" runat="server"
+                                                    ID="SortByUserName"
                                                     CommandName="Sort"
-                                                    CommandArgument="CarType" />
+                                                    CommandArgument="User.UserName" />
                                             </th>
                                             <th class="text-center">
-                                                <asp:LinkButton Text="Fuel Economy" runat="server"
-                                                    ID="SortByFuelEconomy"
+                                                <asp:LinkButton Text="Car model" runat="server"
+                                                    ID="SortCarModel"
                                                     CommandName="Sort"
-                                                    CommandArgument="FuelEconomy" />
+                                                    CommandArgument="Car.Description" />
                                             </th>
-
                                             <th class="text-center">
-                                                <asp:Literal Text="Features" runat="server" />
+                                                <asp:LinkButton Text="Car type" runat="server"
+                                                    ID="SortCarType"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Car.CarType" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:LinkButton Text="Location" runat="server"
+                                                    ID="SortLocation"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Location" />
+                                            </th>
+                                            <th class="text-center no-wrap">
+                                                <asp:LinkButton Text="Description" runat="server"
+                                                    ID="SortByDescription"
+                                                    CommandName="Sort"
+                                                    CommandArgument="Car.Description" />
+                                            </th>
+                                            <th class="text-center">
+                                                <asp:Literal Text="Picture" runat="server" />
                                             </th>
                                             <th class="text-center">
                                                 <asp:Literal Text="Details" runat="server" />
                                             </th>
-                                            <th class="text-center">
+                                            <th class="text-center min-width-10">
                                                 <asp:Literal Text="Action" runat="server" />
                                             </th>
                                         </tr>
-
                                         <asp:PlaceHolder ID="itemplaceholder" runat="server" />
 
                                     </LayoutTemplate>
@@ -112,97 +126,80 @@
                                     <ItemTemplate>
                                         <tr>
                                             <td>
-                                                <asp:Label Text='<%#: Item.Id %>' runat="server" />
+                                                <asp:Literal Text='<%#: Item.Id %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50px" runat="server" />
+                                                <asp:Label CssClass="no-wrap" Text='<%#: Item.Date %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Label Text='<%#: Item.Description %>' runat="server" />
+                                                <asp:Literal Text='<%#: Item.User.UserName  %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Label Text='<%#: Item.CarType %>' runat="server" />
+                                                <asp:Literal Text='<%#: Item.Car.Description %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:Label Text='<%#: Item.FuelEconomy + " l/100 km" %>' runat="server" />
+                                                <asp:Literal Text='<%#: Item.Car.CarType %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:DropDownList CssClass="form-control input-sm"
-                                                    DataSource='<%# Item.Features.Select(f => f.Value) %>' runat="server" />
+                                                <asp:Literal Text='<%#:  Item.Location %>' runat="server" />
                                             </td>
                                             <td>
-                                                <asp:HyperLink NavigateUrl='<%#: String.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>'
-                                                    runat="server"> Details
+                                                <asp:Literal Text='<%#:  Item.Description %>' runat="server" />
+                                            </td>
+                                            <td>
+                                                <asp:Image ImageUrl='<%#:  Item.Picture %>' CssClass="img-table" runat="server" />
+                                            </td>
+                                            <td>
+                                                <asp:HyperLink NavigateUrl='<%#: String.Format("~/Accident/Details?id={0}", Item.Id) %>' runat="server"> Details
                                                 </asp:HyperLink>
                                             </td>
                                             <td class="wrap">
-                                                <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server"
-                                                    ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
+                                                <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server" ID="LinkButtonEdit" Text="Edit" CommandName="Edit" />
                                                 <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server"
-                                                    ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />
+                                                <asp:LinkButton CssClass="btn btn-xs btn-danger full-width wrap" runat="server" ID="LinkButtonDelete" Text="Delete" CommandName="Delete" />
                                             </td>
                                         </tr>
                                     </ItemTemplate>
                                     <EditItemTemplate>
-                                        <tr>
-                                            <td>
-                                                <asp:Label ID="TextBoxId"
-                                                    Text='<%#: BindItem.Id %>'
-                                                    runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TextBoxImage"
-                                                    CssClass="form-control input-sm"
-                                                    TextMode="Url"
-                                                    Text='<%#: BindItem.PictureUrl %>'
-                                                    runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TextBoxModel"
-                                                    CssClass="form-control input-sm"
-                                                    TextMode="SingleLine"
-                                                    Text='<%#: BindItem.Description %>'
-                                                    runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:DropDownList ID="DdlCarType"
-                                                    CssClass="form-control input-sm"
-                                                    SelectMethod="GetCarType"
-                                                    SelectedValue='<%#: BindItem.CarType %>'
-                                                    runat="server" />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TextBoxFuelEconomy"
-                                                    CssClass="form-control input-sm"
-                                                    Text='<%#: BindItem.FuelEconomy %>'
-                                                    runat="server" />
-                                            </td>
-                                            <td class="text-left">
-                                
-                                                <asp:DropDownList CssClass="form-control input-sm"
-                                                    DataSource='<%# Item.Features.Select(f => f.Value) %>'
-                                                    runat="server" />
+                                        <td>
+                                            <asp:Literal ID="LiteralBoxId" Text='<%#: BindItem.Id %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Literal ID="TextBoxDate" Text='<%#: BindItem.Date %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Literal ID="LiteralUser" Text='<%#: BindItem.User.UserName %>' runat="server" />
+                                        </td>
 
-                                            </td>
-                                            <td>
-                                                <asp:HyperLink NavigateUrl='<%#: String.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>' runat="server"> Details
-                                                </asp:HyperLink>
-                                            </td>
-                                            <td class="wrap">
-                                                <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server"
-                                                    ID="linkbuttonupdate" Text="update" CommandName="update" />
-                                                <br />
-                                                <asp:LinkButton CssClass="btn btn-xs btn-info full-width wrap" runat="server"
-                                                    ID="linkbuttoncancel" Text="cancel" CommandName="cancel" />
-                                            </td>
-                                        </tr>
+                                        <td class="no-wrap">
+                                            <asp:Literal ID="LiteralModel" Text='<%#: BindItem.Car.Description %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Literal ID="LiteralCarType" Text='<%#: BindItem.Car.CarType %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="TextBoxLocation" TextMode="SingleLine" Text='<%#: BindItem.Location %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:TextBox ID="TextBoxDescription" TextMode="SingleLine" Text='<%#: BindItem.Description %>' runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:Image ImageUrl='<%#:  Item.Picture %>' CssClass="img-table" runat="server" />
+                                        </td>
+                                        <td>
+                                            <asp:HyperLink NavigateUrl='<%#: String.Format("~/Accident/Details?id={0}", Item.Id) %>' runat="server"> Details
+                                            </asp:HyperLink>
+                                        </td>
+                                        <td class="wrap">
+                                            <asp:LinkButton CssClass="btn btn-xs btn-warning full-width wrap" runat="server" ID="LinkButtonUpdate" Text="Update" CommandName="Update" />
+                                            <br />
+                                            <asp:LinkButton CssClass="btn btn-xs btn-info full-width wrap" runat="server" ID="LinkButtonCancel" Text="Cancel" CommandName="Cancel" />
+                                        </td>
                                     </EditItemTemplate>
-
                                     <EmptyDataTemplate>
                                         <tr>
                                             <td colspan="8">
-                                                <h4 class="content-empt text-danger">There are no cars with that parameters!</h4>
+                                                <h4 class="content-empt text-danger">There are no accidents with that parameters!</h4>
                                                 <h5 class="content-empty text-info">Try to search with other prams.</h5>
                                             </td>
                                         </tr>
@@ -215,7 +212,7 @@
             </div>
 
             <div class="row text-center bs-component">
-                <asp:DataPager ID="PagerCars" PagedControlID="ListViewAllCars" runat="server" CssClass="btn-group btn-group-sm" PageSize="5">
+                <asp:DataPager ID="PagerReservations" PagedControlID="ViewLastestReservations" runat="server" CssClass="btn-group btn-group-sm" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField PreviousPageText="<" FirstPageText="<<" ShowPreviousPageButton="true"
                             ShowFirstPageButton="true" ShowNextPageButton="false" ShowLastPageButton="false" ButtonType="Button"
@@ -231,5 +228,6 @@
                 </asp:DataPager>
             </div>
         </div>
-    </div>--%>
+    </div>
+
 </asp:Content>
