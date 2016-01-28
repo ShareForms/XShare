@@ -27,6 +27,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <asp:Image CssClass="img-responsive center-block" ImageUrl='<%#: Item.PictureUrl %>' runat="server" />
+
                                         </div>
                                     </div>
                                     <br />
@@ -95,30 +96,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
-
-
-
             </div>
-            <br />
-            <%-- <div class="row text-center">
-                    <div class="col-md-4">
-                        <div class="form-group text-center">
-                            <label for="CarRate" class="col-md-12 control-label">Rate This Car</label>
-                            <div class="col-md-12">
-                                <asp:DropDownList ID="CarRate" runat="server" CssClass="form-control select" SelectMethod="GetCarRatings" />
-                            </div>
-                            <div class="col-md-12">
-                                <asp:Button ID="Btn" runat="server" OnClick="Btn_RateCar" Text="Rate!" CssClass="btn btn-info full-width" />
-                            </div>
-                        </div>
-                    </div>
-                </div>--%>
         </div>
-
+        <br />
     </div>
     </div>
 </asp:Content>
