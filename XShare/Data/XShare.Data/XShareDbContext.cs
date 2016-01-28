@@ -39,6 +39,12 @@
                 .WithRequired(x => x.User)
                 .WillCascadeOnDelete(true);
 
+            modelBuilder
+                .Entity<User>()
+                .HasMany(x => x.Accidents)
+                .WithRequired(x => x.User)
+                .WillCascadeOnDelete(true);
+
             base.OnModelCreating(modelBuilder);
         }
     }
