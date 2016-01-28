@@ -46,7 +46,7 @@ everything available on this application, even making other users admins !
 
 9.	An site map is offered to the users helping them to navigate easily
 
-10.	There are 3 ASCX user controls
+10.	There are 3 ASCX user controls - for YouTube iframe, a Notificator and Confirmator
 
 11.	There is data validation on all input fields
 
