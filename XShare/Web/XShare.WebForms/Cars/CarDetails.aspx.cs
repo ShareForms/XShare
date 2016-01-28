@@ -52,7 +52,7 @@
 
             this.CarService.AddRating(carId, carRating);
 
-            this.Response.Redirect(Request.RawUrl);
+            this.UpdatePanelRating.DataBind();
         }
     }
 }

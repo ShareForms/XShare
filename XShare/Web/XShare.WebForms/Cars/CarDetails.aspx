@@ -47,10 +47,6 @@
                                                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                                                             <asp:Label Text='<%#: Item.CarType %>' runat="server" />
                                                         </div>
-                                                        <div class="list-group-item">
-                                                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                                            <asp:Label Text='<%#: string.Format("{0:F2}", Item.Ratings.Any() ? Item.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,12 +83,41 @@
                                         <span class="text-info">Rate This Car</span>
                                     </div>
 
-                                    <div class="list-group-item">
-                                        <asp:DropDownList ID="CarRateDropDown" runat="server" CssClass="form-control select" SelectMethod="GetCarRatings" />
-                                    </div>
-                                    <div class="list-group-item">
-                                        <asp:Button ID="Btn" runat="server" OnClick="Btn_RateCar" Text="Rate!" CssClass="btn btn-info full-width" />
-                                    </div>
+                                    <asp:UpdatePanel ID="UpdatePanelRating" runat="server"
+                                        UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <asp:FormView
+                                                runat="server"
+                                                ID="ListVIewRating"
+                                                SelectMethod="ViewCarDetails_GetItem"
+                                                ItemType="XShare.Data.Models.Car"
+                                                DataKeyNames="Id"
+                                                RenderOuterTable="false">
+                                                <ItemTemplate>
+                                                    <div class="list-group-item">
+                                                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                                        <asp:Label Text='<%#: string.Format("{0:F2}", Item.Ratings.Any() ? Item.Ratings.Average(r => r.Value) : 0.0f) %>' runat="server" />
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:FormView>
+
+                                            <div class="list-group-item">
+                                                <asp:DropDownList ID="CarRateDropDown" runat="server" CssClass="form-control select">
+                                                    <asp:ListItem Value="1" Text="1" />
+                                                    <asp:ListItem Value="2" Text="2" />
+                                                    <asp:ListItem Value="3" Text="3" />
+                                                    <asp:ListItem Value="4" Text="4" />
+                                                    <asp:ListItem Value="5" Text="5" />
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="list-group-item">
+                                                <asp:Button ID="BtnRate" runat="server" OnCommand="Btn_RateCar" Text="Rate!" CssClass="btn btn-info full-width" />
+                                            </div>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="BtnRate" EventName="Click" />
+                                        </Triggers>
+                                    </asp:UpdatePanel>
                                 </div>
                             </div>
                         </div>
