@@ -26,7 +26,7 @@
                                     <br />
                                     <div class="row">
                                         <div>
-                                            <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="75%" runat="server" />
+                                            <asp:Image ImageUrl='<%#: Item.PictureUrl %>' Width="50%" runat="server" />
                                         </div>
                                     </div>
                                     <div class="row">
