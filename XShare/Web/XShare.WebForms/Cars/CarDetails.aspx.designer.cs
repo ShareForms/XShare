@@ -22,13 +22,13 @@ namespace XShare.WebForms.Cars {
         protected global::System.Web.UI.WebControls.FormView ViewCarDetails;
         
         /// <summary>
-        /// CarRate control.
+        /// CarRateDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CarRate;
+        protected global::System.Web.UI.WebControls.DropDownList CarRateDropDown;
         
         /// <summary>
         /// Btn control.

@@ -47,7 +47,7 @@
 
         protected void Btn_RateCar(object sender, EventArgs e)
         {
-            var carRating = int.Parse(this.CarRate.SelectedValue);
+            var carRating = int.Parse(this.CarRateDropDown.SelectedValue);
             var carId = int.Parse(this.Request.QueryString["id"]);
 
             this.CarService.AddRating(carId, carRating);
